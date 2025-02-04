@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="ps-3">
+        <div class="my-3">Value 1 : <input type="number" id="val-1"></div>
+        <div class="my-3">Value 2 : <input type="number" id="val-2"></div>
+        <div class="my-3">Value 3 : <input type="number" id="val-3"></div>
+    </div>
+    <div class="ps-3">
+        <button type="button" class="btn btn-primary" id="max">MAX NUMBER</button>
+        <button type="button" class="btn btn-primary" id="min">MIX NUMBER</button>
+        <button type="button" class="btn btn-primary" id="cls">CLEAR</button>
+    </div>
+    <div class="ps-3">
+        <h1 id="ans"></h1>
+    </div>
+
+    <script src="./assets/js/jquery-3.7.1.min.js"></script>
+    <script>
+        let v1 = document.getElementById("val-1");
+        let v2 = document.getElementById("val-2");
+        let v3 = document.getElementById("val-3");
+        let ansEle = document.getElementById("ans");
+
+        function max(a, b, c, ansEle){
+            let big = Math.max(a, b, c);
+            ansEle.innerHTML = big;
+        }
+
+        function min(a, b, c, ansEle){
+           let small = Math.min(a, b, c)
+           ansEle.innerHTML = small;
+        }
+
+        $(document).ready(function () {
+            $("#max").on("click", function(){
+                let a1 = Number(v1.value);
+                let a2 = Number(v2.value);
+                let a3 = Number(v3.value);
+
+                max(a1, a2, a3, ansEle);
+            })
+
+            $("#min").on("click", function(){
+                let a1 = Number(v1.value);
+                let a2 = Number(v2.value);
+                let a3 = Number(v3.value);
+
+                min(a1, a2, a3, ansEle);
+            })
+
+            $("#cls").on("click", function(){
+                v1.value = "";
+                v2.value = "";
+                v3.value = "";
+                ansEle.innerHTML = "";
+            })
+        })
+    </script>
+</body>
+
+</html>
