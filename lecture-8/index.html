@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: rgb(218, 86, 86);
+            margin: 5px;
+            animation: change infinite 2s linear;
+            font-size: 25px;
+        }
+        .flex{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .center{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        @keyframes change{
+            0% {
+                background-color: rgb(227, 130, 233);
+                border-radius: 100% 0% 96% 4% / 49% 36% 64% 51% ;
+            }
+            20% {
+                background-color: rgb(239, 67, 67);
+                border-radius: 62% 38% 73% 27% / 37% 55% 45% 63%;
+            }
+            40% {
+                background-color: rgb(124, 231, 217);
+                border-radius: 0% 100% 18% 82% / 0% 33% 67% 100%;
+            }
+            60% {
+                background-color: rgb(66, 96, 229);
+                border-radius: 67% 33% 64% 36% / 32% 33% 67% 68%;
+            }
+            80% {
+                background-color: rgb(216, 98, 213);
+                border-radius: 100% 0% 76% 24% / 63% 27% 73% 37%;
+            }
+            100% {
+                background-color: rgba(78, 231, 101, 0.219);
+                border-radius: 0% 100% 0% 100% / 0% 66% 34% 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="flex" id="box1">
+        <div id="dancebox"></div>
+    </div>
+
+    <script>
+        let dancebox = document.getElementById("dancebox");
+        let box1 = document.getElementById("box1");
+
+        for(let i = 1; i <= 100; i++){
+            box1.innerHTML  += `<div class="box center">${i}</div>`
+        } 
+    </script>
+</body>
+</html>
