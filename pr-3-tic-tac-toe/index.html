@@ -49,6 +49,7 @@
             Swal.fire({
             title: `${val} Won the Match !`,
             icon: "success",
+            backdrop: false,
         });
 
         if(val=="X"){
@@ -190,7 +191,8 @@
                 } else {
                     Swal.fire({
                         text: "Do not Overwrite !",
-                        icon: "error"
+                        icon: "error",
+                        backdrop: false,
                     });
                 }
 
@@ -206,6 +208,7 @@
                     Swal.fire({
                     title: "Match Draw",
                     icon: "warning",
+                    backdrop: false,
                 });
                 count = 0;
                 clear();
