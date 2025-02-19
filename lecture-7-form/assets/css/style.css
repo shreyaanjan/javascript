@@ -1,0 +1,29 @@
+.bg-img{
+    background-color: #F4EDE3;
+    background-image: url(https://brandio.io/envato/iofrm/html/images/graphic9.svg);
+    background-repeat: no-repeat;
+    background-position: center;     
+    background-size: 800px;
+ 
+}
+
+.form-design{
+    padding: 35px 30px;
+    background-color: white;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.25);
+    -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.btn{
+    background-color: #624fb5 !important;
+}
+
+.fs{
+    font-size: 40px !important;
+}

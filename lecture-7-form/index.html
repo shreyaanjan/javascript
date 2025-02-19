@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/media.css">
+</head>
+
+<body>
+    <section class="bg-img vh-100 d-flex align-items-center">
+        <div class="form-design m-auto col-xl-3">
+            <form action="" id="form">
+                <div class="container">
+                    <div>
+                        <div>
+                            <h6 class="fs fw-bold mt-3">FORM :</h6>
+                        </div>
+                        <div class="my-3 fw-semibold col-12">
+                            <label for="name">Name : </label>
+                            <input type="text" class="form-control" name="name" id="name">
+                        </div>
+                        <div class="my-3 fw-semibold col-12">
+                            <label for="mail">Email : </label>
+                            <input type="email" class="form-control" name="mail" id="mail">
+                        </div>
+                        <div class="my-3 fw-semibold col-12">
+                            <label for="num">Contact Number : </label>
+                            <input type="number" class="form-control" name="num" id="num">
+                        </div>
+                        <div class="my-3 fw-semibold col-12">
+                            <label for="pass">Password : </label>
+                            <input type="password" class="form-control" name="pass" id="pass">
+                        </div>
+                        <div class="my-3 fw-semibold col-12">
+                            <label for="c-pass">Confirm Password : </label>
+                            <input type="password" class="form-control" name="c-pass" id="c-pass">
+                        </div>
+                        <div class="mt-2 text-center">
+                            <button class="btn btn-success" type="button" id="sub">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script src="./assets/js/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $(document).ready(function () {
+            let nameEle = document.getElementById("name");
+            let mail = document.getElementById("mail");
+            let num = document.getElementById("num");
+            let pass = document.getElementById("pass");
+            let cpass = document.getElementById("c-pass");
+            let form = document.getElementById("form");
+
+            $("#sub").on("click", function (e) {
+                e.preventDefault();
+                if (nameEle.value.trim() == "") {
+                    Swal.fire({
+                        text: "Please Enter A Valid Name !",
+                        icon: "error"
+                    });
+                    return;
+                }
+                if (mail.value.trim() == "") {
+                    Swal.fire({
+                        text: "Please Enter A Valid Email !",
+                        icon: "error"
+                    });
+                    return;
+                }
+                if (num.value.length < 10) {
+                    Swal.fire({
+                        text: "Enter a Valid Contact Number !",
+                        icon: "error"
+                    });
+                    return;
+                }
+                if (pass.value.trim() == "" || cpass.value.trim() == "") {
+                    Swal.fire({
+                        text: "Password / Confirm Password is Required !",
+                        icon: "error"
+                    });
+                    return;
+                } else if (pass.value.length < 8 || cpass.value.length < 8) {
+                    Swal.fire({
+                        title: "Password should atleast be 8 character long !",
+                        text: "Enter a valid Password !",
+                        icon: "error"
+                    });
+                    return;
+                } else if (pass.value != cpass.value) {
+                    Swal.fire({
+                        text: "Password and Confirm Password should be Same !",
+                        icon: "error"
+                    });
+                    return;
+                }
+                Swal.fire({
+                    title: "Good job!",
+                    text: "Form Submitted Successfully !",
+                    icon: "success"
+                }).then(() => {
+                    form.submit();
+                });
+            })
+        })
+
+    </script>
+</body>
+
+</html>
