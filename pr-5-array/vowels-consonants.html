@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+    <div class="m-2">
+        <h4>Vowels and Consonant</h4>
+        <label for="string">Enter String :</label>
+        <input type="text" id="string" required>
+        <button class="submit">Submit</button>
+        <div>Ans : <span id="ans"></span></div>
+    </div>
+    <script src="./assets/js/jquery-3.7.1.min.js"></script>
+    <script>
+        let string = document.getElementById("string");
+        let ans = document.getElementById("ans");
+
+        const vowels = ['a', 'e', 'i', 'o', 'u'];
+
+        function checkVowels(string){
+            let vowelsCount = 0, consonantsCount = 0;
+            for(let letter of string.toLowerCase()){
+                if(vowels.includes(letter)){
+                    vowelsCount++;
+                } else if(letter >= 'a' && letter <= 'z'){
+                    consonantsCount++;
+                }
+            }
+            ans.innerText = `Vowels is ${vowelsCount} and Consonants is ${consonantsCount}`;
+        }
+
+        $(document).ready(function (){
+            $(".submit").on("click", function(){
+                checkVowels(string.value);
+            })
+        })
+    </script>
+</body>
+</html>

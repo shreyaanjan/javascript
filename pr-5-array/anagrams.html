@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+    <div class="m-2">
+        <h4>Anagrams</h4>
+        <label for="value1">Enter 1st String :</label>
+        <input type="text" id="value1" required>
+        <label for="value2">Enter 2nd String :</label>
+        <input type="text" id="value2" required>
+        <button class="submit">Submit</button>
+        <div>Ans : <span id="ans"></span></div>
+    </div>
+    <script src="./assets/js/jquery-3.7.1.min.js"></script>
+    <script>
+        function checkAnagrams() {
+            let ans1 = document.getElementById("value1").value.toLowerCase();
+            let ans2 = document.getElementById("value2").value.toLowerCase();
+
+            
+            let firstSorted = ans1.split("").sort().join("");
+            let secondSorted = ans2.split("").sort().join("");
+
+            if (firstSorted === secondSorted) {
+                document.getElementById("ans").innerHTML = "It Is An Anagram !";
+            } else {
+                document.getElementById("ans").innerHTML = "It Is Not An Anagram !";
+            }
+        }
+
+        $(document).ready(function(){
+            $(".submit").on("click", function(){
+                checkAnagrams();
+            })
+        })
+    </script>
+</body>
+</html>
