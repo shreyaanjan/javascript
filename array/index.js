@@ -33,10 +33,14 @@
 //     console.log(key, info[key]);
 // }
 
-let arr = [10, 20, 30, 40];
+let arr = [10, 20, 30, 40, 50];
 // arr[4] = [60, 30, 80, 100];
 // arr[arr.length] = 100, 200;
 // console.log(arr);
 
-arr.push(100, 200, 300);
+// arr.push(100, 200, 300);
+// arr.pop(arr);
+// arr.shift()
+// arr.unshift(100);
+// newArr = arr.splice(2);
 console.log(arr);
