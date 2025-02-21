@@ -13,10 +13,34 @@
         <input type="text" id="num" required>
         <button class="submit">Submit</button>
     </div>
+    <div class="mt-4 m-2">
+        <label for="prime">Prime Number:</label>
+        <input type="text" id="prime">
+    </div>
 
     <script src="./assets/js/jquery-3.7.1.min.js"></script>
     <script>
+        let number = document.getElementById("num");
 
+        function checkPrime(number){
+            if(number <= 1) return false;
+            for(let i = 2; i * i <= number; i++){
+                if(number % i === 0){
+                    return false;
+                }
+                return true;
+            }
+        }
+        $(document).ready(function(){
+            $(".submit").on("click", function(){
+                let userInput = document.getElementById("num").value.trim();
+                let numbers = userInput.split(',').map(Number).filter(n => !isNaN(n));
+                checkPrime(numbers);
+
+                let primeNumbers = numbers.filter(checkPrime);
+                document.getElementById("prime").value = primeNumbers.join(",");
+            })
+        })
     </script>
 </body>
 </html>
