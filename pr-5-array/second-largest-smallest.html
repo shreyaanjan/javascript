@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="m-2">
+        <h4>Second Largest & Smallest Number</h4>
+        <label for="num">Enter Number with Commas :</label>
+        <input type="text" id="num" required>
+        <button class="submit">Submit</button>
+        <label for="sort">Sorted Array:</label>
+        <input type="text" id="sort">
+    </div>
+    <div class="mt-4 m-2">
+        <label for="small">Second Smallest Number:</label>
+        <input type="text" id="small">
+    </div>
+    <div class="mt-4 m-2">
+        <label for="big">Second Largest Number:</label>
+        <input type="text" id="big">
+    </div>
+
+    <script src="./assets/js/jquery-3.7.1.min.js"></script>
+    <script>
+        let number = document.getElementById(num);
+
+        function findSmallLargeNum(arr) {
+            arr.sort((a, b) => a - b);
+            document.getElementById("sort").value = arr.join(",");
+
+            let secondSmallest = arr[1];
+            let secondLargest = arr[arr.length - 2];
+
+            document.getElementById("small").value = secondSmallest;
+            document.getElementById("big").value = secondLargest;
+        }
+        $(document).ready(function () {
+            $(".submit").on("click", function () {
+                let userInput = document.getElementById("num").value.trim();
+                let numbers = userInput.split(',').map(Number).filter(n => !isNaN(n));
+                findSmallLargeNum(numbers);
+            })
+        })
+    </script>
+</body>
+
+</html>
