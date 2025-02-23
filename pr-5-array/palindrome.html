@@ -1,39 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="./assets/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<body>
-    <div class="m-2">
-        <h4>Palindrome</h4>
-        <label for="name">Enter Name :</label>
-        <input type="text" id="name" required>
-        <button class="submit">Submit</button>
-        <div>Ans : <span id="ans"></span></div>
+
+<body class="inner-bg">
+    <div class="vh-100 d-flex align-items-center">
+        <div class="content m-auto">
+            <div class="container">
+                <h6 class="text-uppercase fw-bold fs text-center m-0">Palindrome Checker</h6>
+                <div class="input-group py-4">
+                    <span class="input-group-text">🔤</span>
+                    <input type="text" id="name" class="form-control" placeholder="Enter A Word">
+                </div>
+                <div class="py-1">
+                    <button class="btn btn-primary border-0 w-100" id="submit">Check 🔍</button>
+                </div>
+                <div class="py-4">
+                    <input type="text" id="ans" class="form-control" placeholder="Result Will Appear Here">
+                </div>
+            </div>
+        </div>
     </div>
+
     <script src="./assets/js/jquery-3.7.1.min.js"></script>
     <script>
-        let name = document.getElementById("name");
-        let ans = document.getElementById("ans");
+        function checkPalindrome(word) {
+            let formattedWord = word.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+            let reversedWord = formattedWord.split('').reverse().join('');
 
-        function checkPalindrome(name){
-            let arr = [];
-            arr = name;  
-    
-            if(name !== arr.split('').reverse('').join('')){
-                ans = document.getElementById("ans").innerHTML = `Its Not A Palindrome String !`
+            let resultBox = $("#ans");
+            resultBox.removeClass("glow-green glow-red glow-yellow");
+
+            if (formattedWord === "") {
+                resultBox.val("⚠️ Please Enter A Valid Input").addClass("glow-yellow");
+                return;
+            } else if (formattedWord === reversedWord) {
+                resultBox.val("✅ It's A Palindrome!").addClass("glow-green");
             } else {
-                ans = document.getElementById("ans").innerHTML = `Its A Palindrome String !`
+                resultBox.val("❌ It's Not A Palindrome!").addClass("glow-red");
             }
         }
-        $(document).ready(function(){
-            $(".submit").on("click", function (){
-                checkPalindrome(name.value);
+        $(document).ready(function () {
+            $("#submit").on("click", function () {
+                checkPalindrome($("#name").val().trim());
             })
         })
     </script>
 </body>
+
 </html>

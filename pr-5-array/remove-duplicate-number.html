@@ -1,36 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="./assets/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<body>
-    <div class="m-2">
-        <h4>Remove Duplicate Number</h4>
-        <label for="num">Enter Number with Commas :</label>
-        <input type="text" id="num" required>
-        <button class="submit">Submit</button>
+
+<body class="inner-bg">
+    <div class="vh-100 d-flex align-items-center">
+        <div class="content m-auto">
+            <div class="container">
+                <h6 class="text-uppercase fw-bold fs text-center m-0">Remove Duplicate Number Checker</h6>
+                <div class="input-group py-4">
+                    <span class="input-group-text">🔢</span>
+                    <input type="text" id="num" class="form-control" placeholder="Enter Number with Commas">
+                </div>
+                <div class="py-1">
+                    <button class="btn btn-primary border-0 w-100" id="submit">Check 🔍</button>
+                </div>
+                <div class="py-4">
+                    <input type="text" id="unique" class="form-control" placeholder="Result Will Appear Here">
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="mt-4 m-2">
-        <label for="unique">Unique Elements:</label>
-        <input type="text" id="unique">
-    </div>
-    
+
     <script src="./assets/js/jquery-3.7.1.min.js"></script>
     <script>
-        function checkDuplicate(num){
+        function checkDuplicate(num) {
             let uniqueNum = [...new Set(num)];
             document.getElementById("unique").value = uniqueNum.join(",");
+            $("#unique").addClass("glow-green");
         }
-        $(document).ready(function (){
-            $(".submit").on("click", function(){
-                let userInput = document.getElementById("num").value;
+        $(document).ready(function () {
+            $("#submit").on("click", function () {
+                let userInput = document.getElementById("num").value.trim();
+                $("#unique").removeClass("glow-green glow-red glow-yellow");
+
+                if (userInput === "") {
+                    $("#unique").val("⚠️ Please Enter A Valid Input").addClass("glow-yellow");
+                    return;
+                }
+
                 let numbers = userInput.split(",").map(Number).filter(n => !isNaN(n));
                 checkDuplicate(numbers);
             })
         })
     </script>
 </body>
+
 </html>

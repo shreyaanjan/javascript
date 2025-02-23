@@ -6,24 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="./assets/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
-<body>
-    <div class="m-2">
-        <h4>Second Largest & Smallest Number</h4>
-        <label for="num">Enter Number with Commas :</label>
-        <input type="text" id="num" required>
-        <button class="submit">Submit</button>
-        <label for="sort">Sorted Array:</label>
-        <input type="text" id="sort">
-    </div>
-    <div class="mt-4 m-2">
-        <label for="small">Second Smallest Number:</label>
-        <input type="text" id="small">
-    </div>
-    <div class="mt-4 m-2">
-        <label for="big">Second Largest Number:</label>
-        <input type="text" id="big">
+<body class="inner-bg">
+    <div class="vh-100 d-flex align-items-center">
+        <div class="content m-auto">
+            <div class="container">
+                <h6 class="text-uppercase fw-bold fs text-center m-0">Second Min & Max Number Finder</h6>
+                <div class="input-group py-4">
+                    <span class="input-group-text">🔢</span>
+                    <input type="text" id="num" class="form-control" placeholder="Enter Number with Commas">
+                </div>
+                <div class="py-1 pb-4">
+                    <button class="btn btn-primary border-0 w-100" id="submit">Find 🔍</button>
+                </div>
+                <div class="pb-4">
+                    <input type="text" id="sort" class="form-control" placeholder="Sorted Array">
+                </div>
+                <div id="ans">
+                    <div class="pb-4">
+                        <input type="text" id="small" class="form-control"
+                            placeholder="Second Smallest Number Will Appear Here">
+                    </div>
+                    <div class="pb-4">
+                        <input type="text" id="big" class="form-control"
+                            placeholder="Second Largest Number Will Appear Here">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="./assets/js/jquery-3.7.1.min.js"></script>
@@ -31,18 +43,34 @@
         let number = document.getElementById(num);
 
         function findSmallLargeNum(arr) {
+            let resultBox = $("#ans");
+            $("#sort", "#small", "#big").removeClass("glow-green glow-red glow-yellow")
+
+            if (arr.length < 2) {
+                $("#small, #big").val("❌ Need At Least 2 Numbers !").addClass("glow-red");
+                return;
+            }
+
             arr.sort((a, b) => a - b);
-            document.getElementById("sort").value = arr.join(",");
+            $("#sort").val("✅ Sorted: " + arr.join(", ")).addClass("glow-green");
 
             let secondSmallest = arr[1];
             let secondLargest = arr[arr.length - 2];
 
-            document.getElementById("small").value = secondSmallest;
-            document.getElementById("big").value = secondLargest;
+            $("#small").val("🟢 Second Smallest: " + secondSmallest).addClass("glow-green");
+            $("#big").val("🟢 Second Largest: " + secondLargest).addClass("glow-green");
+
         }
         $(document).ready(function () {
-            $(".submit").on("click", function () {
+            $("#submit").on("click", function () {
                 let userInput = document.getElementById("num").value.trim();
+                $("#ans").removeClass("glow-green glow-red glow-yellow");
+
+                if (userInput === "") {
+                    $("#sort").val("⚠️ Please Enter A Valid Input").addClass("glow-yellow");
+                    $("#small, #big").val("").removeClass("glow-green glow-red glow-yellow");
+                    return;
+                }
                 let numbers = userInput.split(',').map(Number).filter(n => !isNaN(n));
                 findSmallLargeNum(numbers);
             })

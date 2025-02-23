@@ -5,40 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="./assets/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<body>
-    <div class="m-2">
-        <h4>Prime Number</h4>
-        <label for="num">Enter Number with Commas :</label>
-        <input type="text" id="num" required>
-        <button class="submit">Submit</button>
-    </div>
-    <div class="mt-4 m-2">
-        <label for="prime">Prime Number:</label>
-        <input type="text" id="prime">
+
+<body class="inner-bg">
+    <div class="vh-100 d-flex align-items-center">
+        <div class="content m-auto">
+            <div class="container">
+                <h6 class="text-uppercase fw-bold fs text-center m-0">Prime Number Checker</h6>
+                <div class="input-group py-4">
+                    <span class="input-group-text">🔢</span>
+                    <input type="text" id="num" class="form-control w-100" placeholder="Enter Number with Commas">
+                </div>
+                <div class="py-1">
+                    <button class="btn btn-primary border-0 w-100" id="submit">Check 🔍</button>
+                </div>
+                <div class="py-4">
+                    <input type="text" id="prime" class="form-control" placeholder="Result Will Appear Here">
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="./assets/js/jquery-3.7.1.min.js"></script>
     <script>
         let number = document.getElementById("num");
-
         function checkPrime(number){
             if(number <= 1) return false;
             for(let i = 2; i * i <= number; i++){
                 if(number % i === 0){
                     return false;
-                }
-                return true;
+                } 
             }
+            return true;
         }
         $(document).ready(function(){
-            $(".submit").on("click", function(){
+            $("#submit").on("click", function(){
                 let userInput = document.getElementById("num").value.trim();
+                $("#prime").removeClass("glow-green glow-red glow-yellow");
+                if(userInput === ""){
+                    $("#prime").val("⚠️ Please Enter A Valid Input").addClass("glow-yellow");
+                    return;
+                }
                 let numbers = userInput.split(',').map(Number).filter(n => !isNaN(n));
-                checkPrime(numbers);
-
                 let primeNumbers = numbers.filter(checkPrime);
-                document.getElementById("prime").value = primeNumbers.join(",");
+                
+                if(primeNumbers.length > 0){
+                    $("#prime").val(primeNumbers.join(",")).addClass("glow-green");
+                } else{
+                    $("#prime").val("❌ No Prime Numbers Found !").addClass("glow-red");
+                }
             })
         })
     </script>

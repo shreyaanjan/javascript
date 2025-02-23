@@ -5,17 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="./assets/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<body>
-    <div class="m-2">
-        <h4>Anagrams</h4>
-        <label for="value1">Enter 1st String :</label>
-        <input type="text" id="value1" required>
-        <label for="value2">Enter 2nd String :</label>
-        <input type="text" id="value2" required>
-        <button class="submit">Submit</button>
-        <div>Ans : <span id="ans"></span></div>
+
+<body class="inner-bg">
+    <div class="vh-100 d-flex align-items-center">
+        <div class="content m-auto">
+            <div class="container">
+                <h6 class="text-uppercase fw-bold fs text-center m-0">Anagrams Checker</h6>
+                <div class="input-group py-4">
+                    <span class="input-group-text">🔤</span>
+                    <input type="text" id="value1" class="form-control" placeholder="Enter 1st Word">
+                </div>
+                <div class="input-group pb-4">
+                    <span class="input-group-text">🔤</span>
+                    <input type="text" id="value2" class="form-control" placeholder="Enter 2nd Word">
+                </div>
+                <div class="py-1">
+                    <button class="btn btn-primary border-0 w-100" id="submit">Check 🔍</button>
+                </div>
+                <div class="py-4">
+                    <input type="text" id="ans" class="form-control" placeholder="Result Will Appear Here">
+                </div>
+            </div>
+        </div>
     </div>
+    
     <script src="./assets/js/jquery-3.7.1.min.js"></script>
     <script>
         function checkAnagrams() {
@@ -25,15 +40,21 @@
             let firstSorted = ans1.split("").sort().join("");
             let secondSorted = ans2.split("").sort().join("");
 
-            if (firstSorted === secondSorted) {
-                document.getElementById("ans").innerHTML = "It Is An Anagram !";
+            let resultBox = $("#ans");
+            resultBox.removeClass("glow-green glow-red glow-yellow");
+
+            if(firstSorted === "" || secondSorted === ""){
+                resultBox.val("⚠️ Please Enter A Valid Input").addClass("glow-yellow");
+                return;
+            } else if (firstSorted === secondSorted) {
+                resultBox.val("✅ It's An Anagram Word !").addClass("glow-green");
             } else {
-                document.getElementById("ans").innerHTML = "It Is Not An Anagram !";
+                resultBox.val("❌ It's Not An Anagram Word !").addClass("glow-red");
             }
         }
 
         $(document).ready(function(){
-            $(".submit").on("click", function(){
+            $("#submit").on("click", function(){
                 checkAnagrams();
             })
         })

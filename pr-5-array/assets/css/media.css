@@ -1,0 +1,25 @@
+@media (max-width : 470px) {
+    .btn-1 {
+        width: 100% !important;
+        margin-bottom: 20px;
+    }
+
+    .py-1.d-flex {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .py-4 {
+        padding-top: 0!important;
+        padding-bottom: 0 !important
+    }
+
+    .btns{
+        padding-block-start: 20px !important;
+    }
+
+    .title{
+        padding-block-end: 10px !important;
+    }
+    
+}

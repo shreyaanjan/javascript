@@ -6,64 +6,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="./assets/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/media.css">
 </head>
 
-<body>
-    <h4 class="m-2">Upper/Lower/Toggle Case</h4>
-    <div class="m-2">
-        <label for="val">Enter String :</label>
-        <input type="text" id="val" required>
+<body class="inner-bg">
+    <div class="vh-100 d-flex align-items-center">
+        <div class="content m-auto">
+            <div class="container">
+                <h6 class="text-uppercase fw-bold fs text-center m-0 title">Upper/Lower/Toggle Converter</h6>
+                <div class="input-group py-4">
+                    <span class="input-group-text">🔤</span>
+                    <input type="text" id="val" class="form-control" placeholder="Enter A Word">
+                </div>
+                <div class="py-1 d-flex align-items-center justify-content-between btns">
+                    <button class="btn-1 btn btn-primary border-0 w-25" id="upper">Upper 🔠 </button>
+                    <button class="btn-1 btn btn-primary border-0 w-25" id="lower">Lower 🔡 </button>
+                    <button class="btn-1 btn btn-primary border-0 w-25" id="toggle">Toggle 🔀 </button>
+                </div>
+                <div class="py-4 ans">
+                    <input type="text" id="ans" class="form-control" placeholder="Result Will Appear Here" readonly>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="m-3">
-        <button class="upper me-2">Upper Case</button>
-        <button class="lower me-2">Lower Case</button>
-        <button class="toggle">Toggle Case</button>
-    </div>
-    <div class="m-2 mt-2">
-        <label for="ans">Ans String :</label>
-        <input type="text" name="" id="ans">
-    </div>
+
     <script src="./assets/js/jquery-3.7.1.min.js"></script>
     <script>
-        let value = document.getElementById("val");
-        let ans = document.getElementById("ans");
-
-        function upper(val) {
-            let inputStr = val;
-            let uppertxt = inputStr.toUpperCase();
-            ans.value = uppertxt;
+        function applyGlow(color) {
+            $("#ans").removeClass("glow-green glow-yellow glow-red").addClass(color);
         }
 
-        function lower(val) {
-            let inputStr = val;
-            let lowertxt = inputStr.toLowerCase();
-            ans.value = lowertxt;
-        }
-
-        function toggle(val) {
-            let inputStr = val;
-            let toggleStr = "";
-
-            for(let i = 0; i < inputStr.length; i++){
-                let char = inputStr[i];
-                if(char === char.toUpperCase()){
-                    toggleStr += char.toLowerCase();
-                } else {
-                    toggleStr += char.toUpperCase();
-                }
-                ans.value = toggleStr;
+        function upper() {
+            let inputStr = $("#val").val().trim();
+            if (inputStr === "") {
+                $("#ans").val("⚠️ Please Enter A Valid Input");
+                applyGlow("glow-yellow");
+                return;
             }
+            let result = inputStr.toUpperCase();
+            if (result === inputStr) {
+                applyGlow("glow-red");
+            } else {
+                applyGlow("glow-green");
+            }
+            $("#ans").val(result);
+        }
+
+        function lower() {
+            let inputStr = $("#val").val().trim();
+            if(inputStr === ""){
+                $("#ans").val("⚠️ Please Enter A Valid Input");
+                applyGlow("glow-yellow");
+                return;
+            }
+            let result = inputStr.toLowerCase();
+            if (result === inputStr) {
+                applyGlow("glow-red");
+            } else {
+                applyGlow("glow-green");
+            }
+            $("#ans").val(result);
+        }
+
+        function toggle() {
+            let inputStr = $("#val").val().trim();
+            if (inputStr === "") {
+                $("#ans").val("⚠️ Please Enter A Valid Input");
+                applyGlow("glow-yellow");
+                return;
+            }
+            let toggleStr = "";
+            for (let char of inputStr) {
+                toggleStr += char === char.toUpperCase() ? char.toLowerCase() : char.toUpperCase();
+            }
+            if (toggleStr === inputStr) {
+                applyGlow("glow-red");
+            } else {
+                applyGlow("glow-green");
+            }
+            $("#ans").val(toggleStr);
         }
 
         $(document).ready(function () {
-            $(".upper").on("click", function () {
-                upper(val.value);
+            $("#upper").on("click", function () {
+                upper();
             })
-            $(".lower").on("click", function () {
-                lower(val.value);
+            $("#lower").on("click", function () {
+                lower();
             })
-            $(".toggle").on("click", function () {
-                toggle(val.value);
+            $("#toggle").on("click", function () {
+                toggle();
             })
         })
     </script>

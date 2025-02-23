@@ -6,24 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="./assets/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
-<body>
-    <div class="m-2">
-        <h4>Longest Word</h4>
-        <label for="str">Enter String:</label>
-        <input type="text" id="str" required>
-        <button class="submit">Submit</button>
-        <div>Ans : <span id="ans"></span></div>
+<body class="inner-bg">
+    <div class="vh-100 d-flex align-items-center">
+        <div class="content m-auto">
+            <div class="container">
+                <h6 class="text-uppercase fw-bold fs text-center m-0">Longest Word Finder</h6>
+                <div class="input-group py-4">
+                    <span class="input-group-text">🔤</span>
+                    <input type="text" id="str" class="form-control" placeholder="Enter A String">
+                </div>
+                <div class="py-1">
+                    <button class="btn btn-primary border-0 w-100" id="submit">Find 🔍</button>
+                </div>
+                <div class="py-4">
+                    <input type="text" id="ans" class="form-control" placeholder="Result Will Appear Here">
+                </div>
+            </div>
+        </div>
     </div>
-
+   
     <script src="./assets/js/jquery-3.7.1.min.js"></script>
     <script>
-        let str = document.getElementById("str");
-        let ans = document.getElementById("ans");
+        function longestWord() {
+            let inputField = document.getElementById("str");
+            let resultBox = document.getElementById("ans");
 
-        function longestWord(str) {
-            let inputStr = document.getElementById('str').value;
+            resultBox.classList.remove("glow-green", "glow-yellow", "glow-red");
+
+            let inputStr = inputField.value.trim();
+            if (inputStr === "") {
+                resultBox.value = "⚠️ Please Enter A Valid Input";
+                resultBox.classList.add("glow-yellow");
+                return;
+            }
+
             let words = inputStr.split(" ");
             let longestWord = "";
 
@@ -34,11 +53,12 @@
                 }
             }
 
-            document.getElementById("ans").innerHTML = longestWord;
+            resultBox.value = longestWord;
+            resultBox.classList.add("glow-green");
         }
         $(document).ready(function () {
-            $(".submit").on("click", function () {
-                longestWord(str);
+            $("#submit").on("click", function () {
+                longestWord();
             })
         })
     </script>
