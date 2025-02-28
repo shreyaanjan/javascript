@@ -14,25 +14,29 @@
         <div class="content m-auto">
             <div class="container">
                 <h6 class="text-uppercase fw-bold fs text-center m-0">Second Min & Max Number Finder</h6>
-                <div class="input-group py-4">
+                <div class="input-group my-4">
                     <span class="input-group-text">🔢</span>
-                    <input type="text" id="num" class="form-control" placeholder="Enter Number with Commas">
+                    <input type="text" id="num" class="form-control glow-input" placeholder="Enter Number with Commas">
                 </div>
                 <div class="py-1 pb-4">
                     <button class="btn btn-primary border-0 w-100" id="submit">Find 🔍</button>
                 </div>
                 <div class="pb-4">
-                    <input type="text" id="sort" class="form-control" placeholder="Sorted Array">
+                    <input type="text" id="sort" class="form-control ans" placeholder="Sorted Array">
                 </div>
-                <div id="ans">
+                <div>
                     <div class="pb-4">
-                        <input type="text" id="small" class="form-control"
+                        <input type="text" id="small" class="form-control ans"
                             placeholder="Second Smallest Number Will Appear Here">
                     </div>
                     <div class="pb-4">
-                        <input type="text" id="big" class="form-control"
+                        <input type="text" id="big" class="form-control ans"
                             placeholder="Second Largest Number Will Appear Here">
                     </div>
+                </div>
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-primary border-0 w-50 me-5" id="cls">Clear</button>
+                    <button class="btn btn-primary border-0 w-50" id="idx">Home</button>
                 </div>
             </div>
         </div>
@@ -40,40 +44,46 @@
 
     <script src="./assets/js/jquery-3.7.1.min.js"></script>
     <script>
-        let number = document.getElementById(num);
-
+        function checkValid() {
+            let number = document.getElementById("num").value.trim();
+            if (number === "") {
+                $("#sort").val("⚠️ Please Enter A Valid Input").addClass("glow-yellow");
+                $("#small, #big").val("").removeClass("glow-green glow-red glow-yellow");
+                return false;
+            }
+            return number;
+        }
         function findSmallLargeNum(arr) {
-            let resultBox = $("#ans");
-            $("#sort", "#small", "#big").removeClass("glow-green glow-red glow-yellow")
-
             if (arr.length < 2) {
-                $("#small, #big").val("❌ Need At Least 2 Numbers !").addClass("glow-red");
+                $("#small, #big").val("❌ Need At Least 2 Numbers!").addClass("glow-red");
                 return;
             }
-
             arr.sort((a, b) => a - b);
-            $("#sort").val("✅ Sorted: " + arr.join(", ")).addClass("glow-green");
+            document.getElementById("sort").value = `Sorted Array : ` + arr.join(",");
+            document.getElementById("sort").classList.add("glow-green");
 
             let secondSmallest = arr[1];
             let secondLargest = arr[arr.length - 2];
 
-            $("#small").val("🟢 Second Smallest: " + secondSmallest).addClass("glow-green");
-            $("#big").val("🟢 Second Largest: " + secondLargest).addClass("glow-green");
-
+            document.getElementById("small").value = "Second Smallest Number: " + secondSmallest;
+            document.getElementById("small").classList.add("glow-green");
+            document.getElementById("big").value = "Second Largest Number: " + secondLargest;
+            document.getElementById("big").classList.add("glow-green");
         }
         $(document).ready(function () {
             $("#submit").on("click", function () {
-                let userInput = document.getElementById("num").value.trim();
-                $("#ans").removeClass("glow-green glow-red glow-yellow");
+                let userInput = checkValid();
+                if (!userInput) return;
 
-                if (userInput === "") {
-                    $("#sort").val("⚠️ Please Enter A Valid Input").addClass("glow-yellow");
-                    $("#small, #big").val("").removeClass("glow-green glow-red glow-yellow");
-                    return;
-                }
-                let numbers = userInput.split(',').map(Number).filter(n => !isNaN(n));
+                let numbers = userInput.split(",").map(num => Number(num.trim())).filter(n => !isNaN(n));
                 findSmallLargeNum(numbers);
-            })
+            });
+        })
+        $("#cls").on("click", function () {
+            $("#num, #sort, #small, #big").val("").removeClass("glow-green glow-red glow-yellow");
+        })
+        $("#idx").on("click", function () {
+            window.location.href = "index.html";
         })
     </script>
 </body>
