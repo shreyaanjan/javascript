@@ -115,22 +115,6 @@ input#ans.glow-yellow {
     text-decoration: none !important;
 }
 
-.glow-input {
-    /* width: 100%; */
-    padding: 5px;
-    border: 2px solid rgb(118, 169, 241);
-    border-radius: 5px;
-    font-size: 16px;
-    background: transparent;
-    outline: none;
-    box-shadow: 0 0 5px rgb(25,63,116);
-    transition: 0.1s;
-}
-
-.glow-input:focus {
-    box-shadow: 0 0 15px rgb(25,63,116), 0 0 30px rgb(25,63,116);
-}
-
 .input-group {
     border: 2px solid #007bff !important; 
     border-radius: 8px !important; 
