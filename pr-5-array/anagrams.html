@@ -13,11 +13,11 @@
         <div class="content m-auto">
             <div class="container">
                 <h6 class="text-uppercase fw-bold fs text-center m-0">Anagrams Checker</h6>
-                <div class="input-group py-4">
+                <div class="input-group my-4">
                     <span class="input-group-text">🔤</span>
                     <input type="text" id="value1" class="form-control" placeholder="Enter 1st Word">
                 </div>
-                <div class="input-group pb-4">
+                <div class="input-group my-4">
                     <span class="input-group-text">🔤</span>
                     <input type="text" id="value2" class="form-control" placeholder="Enter 2nd Word">
                 </div>
@@ -26,6 +26,10 @@
                 </div>
                 <div class="py-4">
                     <input type="text" id="ans" class="form-control" placeholder="Result Will Appear Here">
+                </div>
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-primary border-0 w-50 me-5" id="cls">Clear</button>
+                    <button class="btn btn-primary border-0 w-50" id="idx">Home</button>
                 </div>
             </div>
         </div>
@@ -41,7 +45,7 @@
             let secondSorted = ans2.split("").sort().join("");
 
             let resultBox = $("#ans");
-            resultBox.removeClass("glow-green glow-red glow-yellow");
+            resultBox.removeClass("glow-green", "glow-red", "glow-yellow");
 
             if(firstSorted === "" || secondSorted === ""){
                 resultBox.val("⚠️ Please Enter A Valid Input").addClass("glow-yellow");
@@ -56,6 +60,16 @@
         $(document).ready(function(){
             $("#submit").on("click", function(){
                 checkAnagrams();
+            })
+            $("#idx").on("click", function () {
+                window.location.href = "index.html";
+            })
+            $("#cls").on("click", function (){
+                document.getElementById("value1").value = "";
+                document.getElementById("value2").value = "";
+                let resultBox = document.getElementById("ans");
+                resultBox.value = "";
+                resultBox.classList.remove("glow-green", "glow-red", "glow-yellow");
             })
         })
     </script>

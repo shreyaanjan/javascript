@@ -21,5 +21,8 @@
     .title{
         padding-block-end: 10px !important;
     }
-    
-}
+
+    .two-btn{
+        padding-block-start: 1.5rem !important;
+    }
+}   
