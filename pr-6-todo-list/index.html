@@ -1,25 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <link rel="stylesheet" href="./assets/css/bootstrap.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
+
 <body>
-    <div class="container">
-        <div class="row">
-            <div>
-                <label for="list"></label>
-                <input type="text" id="list">
+    <div class="vh-100 d-flex align-items-center">
+        <div class="content m-auto">
+            <div class="container">
+                <form action="">
+                    <div>
+                        <h3 class="text-uppercase text-decoration-underline fw-bold">To-Do List</h3>
+                        <div>
+                            <input type="text" id="taskInput" class="form-control my-3" placeholder="Enter Your Tasks">
+                            <select name="" id="optionInput" class="form-control mb-3">
+                                <option value="-1">---Select Priority---</option>
+                                <option value="1">Low</option>
+                                <option value="2">Medium</option>
+                                <option value="3">High</option>
+                            </select>
+                            <button type="button" class="btn btn-primary fw-bold text-uppercase border-0"
+                                id="add-btn">Add Task</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="todo-main" id="task-row"></div>
             </div>
         </div>
     </div>
-    
-
-
-    <script src="./assets/js/jquery-3.7.1.min.js"></script>
-    <script></script>
 </body>
+
+<script src="./assets/js/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    let taskInput = document.getElementById("taskInput");
+    let priorityInput = document.getElementById("optionInput");
+    let addButton = document.getElementById("add-btn");
+    let taskRow = document.getElementById("task-row");
+
+    let tasks = []
+
+    addButton.addEventListener("click", () => {
+        if (taskInput.value === "" || priorityInput.value === "-1") {
+            Swal.fire({
+                icon: "warning",
+                title: "Invalid Input!",
+                showConfirmButton: false,
+                timer: 1500,
+            });
+            return;
+        }
+
+        let obj = {
+            task: taskInput.value,
+            priority: parseInt(priorityInput.value)
+        }
+
+        tasks.push(obj)
+        renderTasks();
+        taskInput.value = "";
+        priorityInput.value = "-1";
+    });
+
+    function getPriority(priority) {
+        switch (priority) {
+            case 1: return "Low";
+            case 2: return "Medium";
+            case 3: return "High";
+            default: return "";
+        }
+    }
+
+    function getPriorityColor(priority) {
+        switch (priority) {
+            case 1: return "#FFB55A";
+            case 2: return "#5BCEF0";
+            case 3: return "#F86994";
+            default: return "";
+        }
+    }
+
+    function renderTasks() {
+        taskRow.innerHTML = "";
+        tasks.forEach((obj, idx) => {
+            taskRow.innerHTML += `
+                    <div class="task-box rounded fw-bold d-flex align-items-center justify-content-between text-white" style="background-color: ${getPriorityColor(obj.priority)};">
+                        <span class="task-text">${obj.task}</span>
+                        <button class="delete-btn border-0" onclick="deleteTask(${idx})">❌</button>
+                    </div>
+                `;
+        });
+    }
+
+    function deleteTask(index) {
+        tasks.splice(index, 1);
+        renderTasks();
+    }
+</script>
+
+
 </html>
