@@ -31,7 +31,6 @@ body::before {
     box-shadow: 0 0 5px rgba(0, 0, 0, 1.0);
     width: 150%;
     max-width: 450px;
-    margin: auto;
 }
 
 .task-box {
@@ -71,12 +70,12 @@ body::before {
     box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.75)
 }
 
-#add-btn:focus{
+#add-btn:focus {
     box-shadow: none;
 }
 
 .todo-main {
-    max-height: 250px;
+    max-height: 300px;
     overflow-y: auto;
     padding-inline-end: 10px;
 }
@@ -93,6 +92,6 @@ body::before {
     color: black !important;
 }
 
-.content h3{
+.content h3 {
     color: #9c692e;
 }
