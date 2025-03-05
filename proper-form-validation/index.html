@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <section class="vh-100 d-flex align-items-center">
+        <div class="form-design m-auto text-center">
+            <form action="">
+                <h1 class="fw-bold">Instagram</h1>
+                <div class="p-50 mb-4">
+                    <input type="text" class="form-control w-100" id="id" placeholder="Phone Number, username or email">
+                    <p class="d-none text-danger text-start mt-1">Enter Valid Phone No, Usename or Email</p>
+                </div>
+
+                <div class="mb-4">
+                    <input type="password" class="form-control w-100" id="pass" placeholder="Password">
+                    <p class="d-none text-danger text-start mt-1">Enter Valid Password</p>
+                </div>
+                <div>
+                    <button class="btn btn-primary w-100" type="submit" id="btn">Log in</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <script>
+        let id = document.querySelector("#id");
+        let pass = document.querySelector("#pass");
+        let btn = document.querySelector("#btn");
+        let form = document.querySelector("form")
+
+        btn.addEventListener("click", (e) => {
+            e.preventDefault()
+            if (id.value.trim() === "") {
+                id.classList.add("focus-danger");
+                id.nextElementSibling.classList.remove("d-none");
+                return;
+            }
+
+            if (pass.value.trim() === "") {
+                pass.classList.add("focus-danger");
+                pass.nextElementSibling.classList.remove("d-none");
+                return;
+            }
+            form.submit()
+
+        })
+
+        id.addEventListener("input", function () {
+            id.classList.remove("focus-danger");
+            id.nextElementSibling.classList.add("d-none");
+            return;
+        })
+
+        pass.addEventListener("input", function () {
+            pass.classList.remove("focus-danger");
+            pass.nextElementSibling.classList.add("d-none");
+            return;
+        })
+    </script>
+</body>
+
+</html>
