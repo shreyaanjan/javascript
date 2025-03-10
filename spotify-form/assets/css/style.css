@@ -1,0 +1,28 @@
+.form-design {
+    padding: 40px 40px;
+    background-color: black;
+    border-radius: 6px;
+    width: 450px;
+    height: 400px;
+}
+
+.btn {
+    background-color: #1ed760 !important;
+    padding: 10px 20px;
+}
+
+.txt-danger {
+    background-color: red;
+    padding: 1px;
+    margin-block: 7px;
+}
+
+body {
+    background: rgb(121, 111, 115);
+    background: radial-gradient(circle, rgba(121, 111, 115, 1) 0%, rgba(0, 0, 0, 1) 40%);
+}
+
+.txt-danger i{
+    color: white;
+    margin-inline-start: 10px;
+}
