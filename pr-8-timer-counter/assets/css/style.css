@@ -1,103 +1,85 @@
-* {
-    box-sizing: border-box;
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #2e3b4e;
+    color: #fff;
     margin: 0;
     padding: 0;
-}
-
-.timer-counter{
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
-.container {
+.timer-counter {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
     text-align: center;
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    width: 400px;
+    max-width: 500px;
+    width: 100%;
 }
 
-h1 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+h2 {
+    font-size: 36px;
+    color: #ffcc00;
+    margin-bottom: 30px;
 }
 
-.input-section {
-    margin-bottom: 20px;
-}
-
-.time-input {
-    margin-bottom: 15px;
-}
-
-label {
+.time-input label {
+    color: #ddd;
     display: block;
-    margin-bottom: 5px;
-    font-size: 1rem;
+    margin-bottom: 10px;
 }
 
-input[type="number"] {
-    width: 60px;
-    padding: 10px;
-    font-size: 1.2rem;
+.time-input input {
+    font-size: 20px;
+    padding: 12px;
+    width: 70px;
     text-align: center;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-right: 10px;
-}
-
-input[type="number"]:focus {
-    border-color: #5b9bd5;
-}
-
-button.start-btn {
-    background-color: #5b9bd5;
-    color: white;
     border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
+    border-radius: 12px;
+    background-color: #333;
+    color: #ffcc00;
+    outline: none;
+    transition: 0.3s;
 }
 
-button.start-btn:hover {
-    background-color: #4a8ab8;
+.time-input input:focus {
+    background-color: #444;
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.6);
 }
 
-.countdown-display {
-    margin-top: 30px;
+.timer-container {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, #333 40%, #111 80%);
+    border-radius: 50%;
+    border: 8px solid #ffcc00;
+    margin: 0 auto;
 }
 
-.timer {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
+.timer-circle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
 
-.time-box {
-    margin: 0 15px;
-    font-size: 1.5rem;
-    font-weight: bold;
+.timer-circle h1 {
+    color: #ffcc00;
 }
 
-.time-box span {
-    font-size: 2.5rem;
+.buttons button {
+    padding: 15px 20px;
+    background-color: #ffcc00;
+    border: none;
+    border-radius: 10px;
     color: #333;
+    cursor: pointer;
+    transition: 0.1s all ease-in-out;
 }
 
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-input[type="number"] {
-    -moz-appearance: textfield;
-    /* For Firefox */
-    appearance: none;
+.buttons button:hover {
+    background-color: #ffaa00;
 }
