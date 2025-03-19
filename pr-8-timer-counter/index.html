@@ -5,45 +5,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Countdown Timer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="./assets/css/bootstrap.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
     <section class="timer-counter">
-        <div class="container">
-            <h1>Countdown Timer</h1>
-    
-            <div class="input-section d-flex justify-content-evenly">
-                <div class="time-input">
-                    <label for="hours">Hours</label>
-                    <input type="number" id="hours" placeholder="00" min="0" max="99">
-                </div>
-    
-                <div class="time-input">
-                    <label for="minutes">Minutes</label>
-                    <input type="number" id="minutes" placeholder="00" min="0" max="59">
-                </div>
-    
-                <div class="time-input">
-                    <label for="seconds">Seconds</label>
-                    <input type="number" id="seconds" placeholder="00" min="0" max="59">
-                </div>
-    
+        <h2 class="text-uppercase fw-semibold">Counter Timer 🕒</h2>
+
+        <div class="input-section d-flex justify-content-evenly">
+            <div class="time-input">
+                <label for="hours" class="fw-semibold">Hours</label>
+                <input type="number" id="hours" placeholder="00" min="0" max="99">
             </div>
-            <button class="start-btn mt-2" id="start">Start Timer</button>
-            <button class="start-btn mt-2" id="pause">Pause Timer</button>
-            <button class="start-btn mt-2" id="reset">Reset Timer</button>
-    
-            <div class="countdown-display">
-                <h2>Timer</h2>
-                <div>
-                    <h1 id="timer">00 : 00 : 00</h1>
+            <div class="time-input">
+                <label for="minutes" class="fw-semibold">Minutes</label>
+                <input type="number" id="minutes" placeholder="00" min="0" max="59">
+            </div>
+            <div class="time-input">
+                <label for="seconds" class="fw-semibold">Seconds</label>
+                <input type="number" id="seconds" placeholder="00" min="0" max="59">
+            </div>
+        </div>
+
+        <div class="buttons d-flex justify-content-center gap-3 mt-5">
+            <button class="start-btn fw-semibold text-uppercase" id="start">Start</button>
+            <button class="start-btn fw-semibold text-uppercase" id="pause">Pause</button>
+            <button class="start-btn fw-semibold text-uppercase" id="reset">Reset</button>
+        </div>
+
+        <div class="countdown-display mt-5">
+            <div class="timer-container">
+                <div class="timer-circle d-flex align-items-center justify-content-center">
+                    <h1 id="timer" class="fw-semibold">00:00:00</h1>
                 </div>
             </div>
         </div>
     </section>
-    
+
+    <div class="modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Hurray ! 💃</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Do Something Today That Your Future Self Will Thank You For.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./assets/js/index.js"></script>
 </body>
