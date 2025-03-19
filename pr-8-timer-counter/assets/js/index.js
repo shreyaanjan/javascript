@@ -60,15 +60,15 @@ document.getElementById("pause").addEventListener("click", () => {
 })
 
 function updateTime() {
-    if (totalSeconds > 0) {
+    if (totalSeconds >= 0) {
         flag = true;
-        totalSeconds--;
         let hrs = Math.floor(totalSeconds / 3600);
         let min = Math.floor((totalSeconds % 3600) / 60);
         let sec = totalSeconds % 60;
         hrs = hrs.toString().padStart(2, '0');
         min = min.toString().padStart(2, '0');
         sec = sec.toString().padStart(2, '0');
+        totalSeconds--;
         document.getElementById("timer").innerText = `${hrs}:${min}:${sec}`;
     } else {
         clearInterval(timer);
