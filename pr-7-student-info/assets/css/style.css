@@ -10,7 +10,7 @@ table {
 
 th{
     padding: 10px;
-    border: 2px dashed #ddd;
+    border: 2px dashed white;
 }
 
 td{
@@ -46,4 +46,10 @@ td{
     background-repeat: no-repeat;
     width: 100%;
     height: 400px;
+}
+
+@media (max-width : 600px) {
+    .image{
+        display : none;
+    }
 }
