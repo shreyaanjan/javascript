@@ -1,9 +1,10 @@
 class Student{
-    constructor(name, grid, contactNo, emailId){
+    constructor(name, grid, contactNo, emailId, dob){
         this.name = name;
         this.grid = grid;
         this.contactNo = contactNo;
         this.emailId = emailId;
+        this.dob = dob;
     }
 }
 
@@ -27,7 +28,9 @@ class studentManage{
                 <td class="p-3">${student.grid}</td>
                 <td class="p-3">${student.contactNo}</td>
                 <td class="p-3">${student.emailId}</td>
-                <td class="p-3">
+                <td class="p-3">${student.dob}</td>
+                <td class="p-3 d-flex flex-wrap align-items-center justify-content-evenly">
+                    <button class="btn btn-warning" onclick="updateStudent(${idx})"><i class="bi bi-pencil-square"></i></button>
                     <button class="btn btn-danger" onclick="deleteStudent(${idx})"><i class="bi bi-trash"></i></button>
                 </td>
             </tr>`;
@@ -47,14 +50,16 @@ class studentManage{
 }
 
 const manage = new studentManage();
+let updateIdx = null;
 
 function createUpdateStudent(){
     let studentName = document.querySelector("#name").value.trim();
     let gridNo = document.querySelector("#grid").value.trim();
     let contactNo = document.querySelector("#number").value.trim();
     let mailId = document.querySelector("#mail").value.trim();
+    let dob = document.querySelector("#dob").value.trim();
 
-    if(studentName === "" || gridNo === "" || contactNo === "" || mailId === ""){
+    if(studentName === "" || gridNo === "" || contactNo === "" || mailId === "" || dob === ""){
         Swal.fire({
             text: "Please Fill Out The Form Correctly !",
             icon: "error"
@@ -62,12 +67,41 @@ function createUpdateStudent(){
         return;
     }
 
-    let student = new Student(studentName, gridNo, contactNo, mailId);
-    manage.create(student);
+    let student = new Student(studentName, gridNo, contactNo, mailId, dob);
+
+    if(updateIdx === null){
+        manage.create(student);
+    } else {
+        manage.update(updateIdx,student);
+        updateIdx = null;
+        document.getElementById("submit").textContent = "Submit";
+    }
+    resetForm();
 }
 
 function deleteStudent(idx){
     manage.delete(idx);
+}
+
+function resetForm(){
+    document.getElementById("name").value = "";
+    document.getElementById("grid").value = "";
+    document.getElementById("number").value = "";
+    document.getElementById("mail").value = "";
+    document.getElementById("dob").value = "";
+}
+
+function updateStudent(idx){
+    let student = manage.students[idx];
+
+    document.getElementById("name").value = student.name;
+    document.getElementById("grid").value = student.grid;
+    document.getElementById("number").value = student.contactNo;
+    document.getElementById("mail").value = student.emailId;
+    document.getElementById("dob").value = student.dob;
+
+    updateIdx = idx;
+    document.getElementById("submit").textContent = "Update";
 }
 
 document.getElementById("submit").addEventListener("click", (e)=>{
