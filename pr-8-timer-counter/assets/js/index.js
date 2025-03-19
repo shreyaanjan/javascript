@@ -2,6 +2,7 @@ let totalSeconds = 0;
 let timer;
 let time = document.getElementById("timer");
 let runningState = false;
+let confettiRunning;
 
 document.getElementById("start").addEventListener("click", () => {
     if (runningState == true) {
@@ -24,7 +25,12 @@ function startTimer() {
             showConfirmButton: true,
             icon: "error",
         });
+        return;
     }
+
+    document.getElementById("hours").value = "";
+    document.getElementById("minutes").value = "";
+    document.getElementById("seconds").value = "";
 
     timer = setInterval(updateTime, 1000);
     runningState = true;
@@ -33,7 +39,7 @@ function startTimer() {
 document.getElementById("reset").addEventListener("click", () => {
     clearInterval(timer);
     runningState = false;
-    document.getElementById("timer").innerHTML = `00 : 00 : 00`;
+    document.getElementById("timer").innerHTML = `00:00:00`;
     document.getElementById("hours").value = "";
     document.getElementById("minutes").value = "";
     document.getElementById("seconds").value = "";
@@ -41,7 +47,6 @@ document.getElementById("reset").addEventListener("click", () => {
 
 document.getElementById("pause").addEventListener("click", () => {
     const pauseButton = document.getElementById("pause");
-    const icon = pauseButton.querySelector("i");
 
     if (runningState) {
         clearInterval(timer);
@@ -67,20 +72,51 @@ function updateTime() {
         document.getElementById("timer").innerText = `${hrs}:${min}:${sec}`;
     } else {
         clearInterval(timer);
+        showModal()
+        runningState = false;
+        return
     }
 }
 
 function showModal() {
-    const myModal = new bootstrap.Modal(document.getElementById('timeUpModal'));
+    const myModal = new bootstrap.Modal(document.getElementById('quoteModal'));
     myModal.show();
+    let audio = document.getElementById("sound");
 
-    setTimeout(() => {
-        confetti({
-            particleCount: 150,
-            spread: 150,
-            origin: { y: 0.4 },
-            colors: ["#00FFFC", "#FC00FF", "#fffc00"],
-            shapes: ["circle", "square"],
-        });
-    }, 300);
+    confettiRunning = setInterval(() => {
+        const end = Date.now() + 1 * 1000;
+        const colors = ["#bb0000", "#ffffff"];
+
+        function startConfetti() {
+            (function frame() {
+                if (!confettiRunning) return;
+                confetti({
+                    particleCount: 2,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    colors: colors,
+                });
+
+                confetti({
+                    particleCount: 2,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    colors: colors,
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            })();
+        }
+        startConfetti();
+    }, 500);
+    audio.currentTime = 0;
+    audio.play();
 }
+
+document.querySelector(".close").addEventListener("click", () => {
+    clearInterval(confettiRunning)
+});
