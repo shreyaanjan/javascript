@@ -59,12 +59,49 @@ function createUpdateStudent(){
     let mailId = document.querySelector("#mail").value.trim();
     let dob = document.querySelector("#dob").value.trim();
 
+    const studentNameRegex = /^[a-zA-Z\s]+$/;
+    const gridNoRegex = /^\d{4}$/;
+    const contactNoRegex = /^\d{10}$/;
+    const mailIdRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
     if(studentName === "" || gridNo === "" || contactNo === "" || mailId === "" || dob === ""){
         Swal.fire({
             text: "Please Fill Out The Form Correctly !",
             icon: "error"
         });
         return;
+    }
+
+    if(!studentNameRegex.test(studentName)){
+        Swal.fire({
+            text: "Enter A Valid Name !",
+            icon: "error"
+        });
+        return;
+    }
+
+    if(!gridNoRegex.test(gridNo)){
+        Swal.fire({
+            text: "Enter A Valid GRID Number (4-digits) !",
+            icon: "error"
+        });
+        return;
+    }
+
+    if(!contactNoRegex.test(contactNo)){
+        Swal.fire({
+            text: "Enter A Valid Contact Number (10-digits) !",
+            icon: "error"
+        });
+        return;
+    }
+
+    if(!mailIdRegex.test(mailId)){
+        Swal.fire({
+            text: "Enter A Valid Email Id (abc@mail.com) !",
+            icon: "error"
+        });
+        return; 
     }
 
     let student = new Student(studentName, gridNo, contactNo, mailId, dob);
