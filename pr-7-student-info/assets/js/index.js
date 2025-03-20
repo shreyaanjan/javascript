@@ -29,7 +29,7 @@ class studentManage{
                 <td class="p-3">${student.contactNo}</td>
                 <td class="p-3">${student.emailId}</td>
                 <td class="p-3">${student.dob}</td>
-                <td class="p-3 d-flex flex-wrap align-items-center justify-content-evenly">
+                <td class="p-3">
                     <button class="btn btn-warning" onclick="updateStudent(${idx})"><i class="bi bi-pencil-square"></i></button>
                     <button class="btn btn-danger" onclick="deleteStudent(${idx})"><i class="bi bi-trash"></i></button>
                 </td>
