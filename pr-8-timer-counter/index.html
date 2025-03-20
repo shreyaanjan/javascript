@@ -11,56 +11,62 @@
 </head>
 
 <body>
-    <section class="timer-counter">
-        <h2 class="text-uppercase fw-semibold">Counter Timer 🕒</h2>
+    <section class="main">
+        <div class="timer-counter">
+            <h2 class="text-uppercase fw-semibold">Counter Timer 🕒</h2>
 
-        <div class="input-section d-flex justify-content-evenly">
-            <div class="time-input">
-                <label for="hours" class="fw-semibold">Hours</label>
-                <input type="number" id="hours" placeholder="00" min="0" max="99">
+            <div class="input-section d-flex justify-content-evenly">
+                <div class="time-input">
+                    <label for="hours" class="fw-semibold">Hours</label>
+                    <input type="number" id="hours" placeholder="00" min="0" max="99">
+                </div>
+                <div class="time-input">
+                    <label for="minutes" class="fw-semibold">Minutes</label>
+                    <input type="number" id="minutes" placeholder="00" min="0" max="59">
+                </div>
+                <div class="time-input">
+                    <label for="seconds" class="fw-semibold">Seconds</label>
+                    <input type="number" id="seconds" placeholder="00" min="0" max="59">
+                </div>
             </div>
-            <div class="time-input">
-                <label for="minutes" class="fw-semibold">Minutes</label>
-                <input type="number" id="minutes" placeholder="00" min="0" max="59">
-            </div>
-            <div class="time-input">
-                <label for="seconds" class="fw-semibold">Seconds</label>
-                <input type="number" id="seconds" placeholder="00" min="0" max="59">
-            </div>
-        </div>
 
-        <div class="buttons d-flex justify-content-center gap-3 mt-5">
-            <button class="start-btn fw-semibold text-uppercase" id="start">Start</button>
-            <button class="start-btn fw-semibold text-uppercase" id="pause">Pause</button>
-            <button class="start-btn fw-semibold text-uppercase" id="reset">Reset</button>
-        </div>
+            <div class="buttons d-flex justify-content-center gap-3 mt-5">
+                <button class="start-btn fw-semibold text-uppercase" id="start">Start</button>
+                <button class="start-btn fw-semibold text-uppercase" id="pause">Pause</button>
+                <button class="start-btn fw-semibold text-uppercase" id="reset">Reset</button>
+            </div>
 
-        <div class="countdown-display mt-5">
-            <div class="timer-container">
-                <div class="timer-circle d-flex align-items-center justify-content-center">
-                    <h1 id="timer" class="fw-semibold">00:00:00</h1>
+            <div class="countdown-display mt-5">
+                <div class="timer-container">
+                    <div class="timer-circle d-flex align-items-center justify-content-center">
+                        <h1 id="timer" class="fw-semibold">00:00:00</h1>
+                    </div>
+                </div>
+            </div>
+
+            <audio src="./assets/sound/openhat.wav" id="sound"></audio>
+
+            <div class="modal fade" tabindex="-1" id="quoteModal" aria-labelledby="quoteModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-black fw-semibold" id="quoteModalLabel">Hurray ! 💃</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-black">
+                            <p class="fw-bold">Do Something Today That Your Future Self Will Thank You For.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success close" data-bs-dismiss="modal">Nice Thought
+                                !</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
     </section>
-    <audio src="./assets/sound/openhat.wav" id="sound"></audio>
 
-    <div class="modal fade" tabindex="-1" id="quoteModal" aria-labelledby="quoteModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title text-black fw-semibold" id="quoteModalLabel">Hurray ! 💃</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-black">
-                    <p class="fw-bold">Do Something Today That Your Future Self Will Thank You For.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success close" data-bs-dismiss="modal">Nice Thought !</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

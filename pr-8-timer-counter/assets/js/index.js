@@ -3,24 +3,66 @@ let timer;
 let time = document.getElementById("timer");
 let runningState = false;
 let confettiRunning;
+let newFlag = false;
+let paused = false;
 
 document.getElementById("start").addEventListener("click", () => {
-    if (runningState == true) {
-        return;
-    }
+    if (runningState) return;
     startTimer();
+    newFlag = true;
 })
 
 function startTimer() {
-    let h = parseInt(document.getElementById("hours").value) || 0;
-    let m = parseInt(document.getElementById("minutes").value) || 0;
-    let s = parseInt(document.getElementById("seconds").value) || 0;
+    if (!paused) {
+        let h = parseInt(document.getElementById("hours").value) || 0;
+        let m = parseInt(document.getElementById("minutes").value) || 0;
+        let s = parseInt(document.getElementById("seconds").value) || 0;
+        totalSeconds = (h * 3600) + (m * 60) + (s);
 
-    totalSeconds = (h * 3600) + (m * 60) + (s);
+        if (totalSeconds <= 0) {
+            Swal.fire({
+                text: "Enter Time Parameters !",
+                position: 'center',
+                showConfirmButton: true,
+                icon: "error",
+            });
+            return;
+        }
+    }
+
+    timer = setInterval(() => {
+        if (totalSeconds == -1) {
+            clearInterval(timer);
+            showModal();
+            runningState = false;
+        } else {
+            updateTime();
+            totalSeconds--;
+        }
+    }, 1000);
+    runningState = true;
+    paused = false;
+}
+
+document.getElementById("reset").addEventListener("click", () => {
+    const pauseButton = document.getElementById("pause");
+    clearInterval(timer);
+    runningState = false;
+    paused = false;
+    document.getElementById("timer").innerHTML = `00:00:00`;
+    document.getElementById("hours").value = "";
+    document.getElementById("minutes").value = "";
+    document.getElementById("seconds").value = "";
+    pauseButton.innerHTML = "Pause";
+    newFlag = false;
+})
+
+document.getElementById("pause").addEventListener("click", () => {
+    const pauseButton = document.getElementById("pause");
 
     if (totalSeconds <= 0) {
         Swal.fire({
-            text: "Enter Valid Input !",
+            text: "Enter Time Parameters !",
             position: 'center',
             showConfirmButton: true,
             icon: "error",
@@ -28,54 +70,26 @@ function startTimer() {
         return;
     }
 
-    document.getElementById("hours").value = "";
-    document.getElementById("minutes").value = "";
-    document.getElementById("seconds").value = "";
-
-    timer = setInterval(updateTime, 1000);
-    runningState = true;
-}
-
-document.getElementById("reset").addEventListener("click", () => {
-    clearInterval(timer);
-    runningState = false;
-    document.getElementById("timer").innerHTML = `00:00:00`;
-    document.getElementById("hours").value = "";
-    document.getElementById("minutes").value = "";
-    document.getElementById("seconds").value = "";
-})
-
-document.getElementById("pause").addEventListener("click", () => {
-    const pauseButton = document.getElementById("pause");
-
-    if (runningState) {
-        clearInterval(timer);
-        runningState = false;
-        pauseButton.innerHTML = 'Play';
-    } else {
-        timer = setInterval(updateTime, 1000);
-        runningState = true;
-        pauseButton.innerHTML = 'Pause';
+    if (newFlag) {
+        if (runningState) {
+            clearInterval(timer);
+            runningState = false;
+            paused = true;
+            pauseButton.innerHTML = 'Play';
+        } else {
+            startTimer();
+            pauseButton.innerHTML = 'Pause';
+        }
     }
 })
 
 function updateTime() {
-    if (totalSeconds >= 0) {
-        flag = true;
-        let hrs = Math.floor(totalSeconds / 3600);
-        let min = Math.floor((totalSeconds % 3600) / 60);
-        let sec = totalSeconds % 60;
-        hrs = hrs.toString().padStart(2, '0');
-        min = min.toString().padStart(2, '0');
-        sec = sec.toString().padStart(2, '0');
-        totalSeconds--;
-        document.getElementById("timer").innerText = `${hrs}:${min}:${sec}`;
-    } else {
-        clearInterval(timer);
-        showModal()
-        runningState = false;
-        return
-    }
+    let hrs = Math.floor(totalSeconds / 3600);
+    let min = Math.floor((totalSeconds % 3600) / 60);
+    let sec = totalSeconds % 60;
+
+    document.getElementById("timer").innerText =
+        `${hrs.toString().padStart(2, '0')}:${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
 }
 
 function showModal() {
@@ -115,6 +129,13 @@ function showModal() {
     }, 500);
     audio.currentTime = 0;
     audio.play();
+    newFlag = false;
+    const pauseButton = document.getElementById("pause");
+    pauseButton.innerHTML = "Pause";
+    document.getElementById("timer").innerHTML = "00:00:00";
+    document.getElementById("hours").value = "";
+    document.getElementById("minutes").value = "";
+    document.getElementById("seconds").value = "";
 }
 
 document.querySelector(".close").addEventListener("click", () => {
