@@ -8,13 +8,18 @@ table {
     border-collapse: collapse;
 }
 
+tr{
+    background-color: #3dc8e9 !important;
+}
+
 th{
     padding: 10px;
     border: 2px dashed white;
+    background-color: #27a8d2 !important;
 }
 
 td{
-    background-color: #d3d3d3 !important;
+    background-color: white !important;
     border: 2px dashed black;
 }
 
