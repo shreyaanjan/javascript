@@ -23,7 +23,7 @@ class studentManage{
         studentList.innerHTML = "";
 
         this.students.forEach((student, idx) => {
-            let row = `<tr>
+            let row = `<tr class="text-center">
                 <td class="p-3">${student.name}</td>
                 <td class="p-3">${student.grid}</td>
                 <td class="p-3">${student.contactNo}</td>
@@ -31,6 +31,8 @@ class studentManage{
                 <td class="p-3">${student.dob}</td>
                 <td class="p-3">
                     <button class="btn btn-warning" onclick="updateStudent(${idx})"><i class="bi bi-pencil-square"></i></button>
+                </td>
+                <td class="p-3">
                     <button class="btn btn-danger" onclick="deleteStudent(${idx})"><i class="bi bi-trash"></i></button>
                 </td>
             </tr>`;

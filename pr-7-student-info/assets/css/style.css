@@ -23,6 +23,10 @@ td{
     border: 2px dashed black;
 }
 
+table tr th i {
+    background: none !important;
+    color: white !important;
+}
 .glass-card {
     margin-block-start: 20px;
     background-color: white;
