@@ -58,3 +58,8 @@ td{
         display : none;
     }
 }
+
+.form-control:focus{
+    box-shadow: none;
+    border: 1px solid black;
+}
