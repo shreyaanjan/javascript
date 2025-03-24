@@ -113,7 +113,7 @@ function createUpdateStudent(){
     } else {
         manage.update(updateIdx,student);
         updateIdx = null;
-        document.getElementById("submit").textContent = "Submit";
+        document.getElementById("submit").innerHTML = "Submit";
     }
     resetForm();
 }
@@ -140,7 +140,7 @@ function updateStudent(idx){
     document.getElementById("dob").value = student.dob;
 
     updateIdx = idx;
-    document.getElementById("submit").textContent = "Update";
+    document.getElementById("submit").innerHTML = "Update";
 }
 
 document.getElementById("submit").addEventListener("click", (e)=>{
