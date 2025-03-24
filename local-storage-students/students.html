@@ -1,11 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <table cellpadding="10" cellspacing="10">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>GRID</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody id="dataTable">
+            <!-- <tr></tr>
+            <tr></tr>
+            <tr></tr> -->
+        </tbody>
+    </table>
+
+    <!-- <h1 id="demo">name : </h1> -->
+
+    <script>
+        const students = JSON.parse(localStorage.getItem("students"));
+        
+        let data = document.getElementById("dataTable");
+        data.innerHTML = "";
+
+        students.forEach((student) => {
+            let row  = `<tr>
+                <td>${student.Name}</td>
+                <td>${student.Grid}</td>
+                <td>${student.Email}</td>
+            </tr>`
+            data.innerHTML += row;
+        });
+
+    </script>
 </body>
+
 </html>

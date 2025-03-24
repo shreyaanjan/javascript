@@ -30,6 +30,29 @@
             <button type="button" class="btn btn-primary">Submit</button>
         </form>
     </div>
+    <script>
+        document.querySelector(`button[type="button"]`).addEventListener("click", () => {
+            let studentName = document.querySelector("#name").value;
+            let studentGrid = document.querySelector("#grid").value;
+            let studentMail = document.querySelector("#mail").value;
+
+            let obj = {
+                Name: studentName,
+                Grid: studentGrid,
+                Email: studentMail,
+            }
+
+            // localStorage.setItem("students", JSON.stringify(obj))
+
+            let arr = JSON.parse(localStorage.getItem("students")) || [];
+
+            arr.push(obj);
+
+            localStorage.setItem("students", JSON.stringify(arr));
+
+            window.location = "./students.html"
+        })
+    </script>
 </body>
 
 </html>
