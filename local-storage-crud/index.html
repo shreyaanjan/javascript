@@ -52,12 +52,7 @@
             let course = document.getElementById("course").value;
             let gender = document.querySelector(`input[type="radio"]:checked`).value;
 
-            let studentsObj = {
-                name,
-                mail,
-                course,
-                gender,
-            }
+            let studentsObj = {name, mail, course, gender}
 
             let studentsArr = JSON.parse(localStorage.getItem("students")) || [];
 
