@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=League+Spartan:wght@100..900&display=swap');
 *{
     list-style: none;
     text-decoration: none !important;
+    font-family: int;
 }
 
 .header-center-section{
@@ -12,4 +15,73 @@
     background: url(https://quomodosoft.com/html/ecoshop/assets/images/homepage-one/hero-bg.webp);
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.hero-section{
+    padding: 70px;
+}
+
+.subtitle{
+    font-size: 30px;
+    color: #34a853;
+    font-family: "Inter", sans-serif;
+}
+
+.title{
+    font-family: "League Spartan", sans-serif;
+    font-weight: 700;
+    color: #1d1d1d;
+    font-size: 76px;
+}
+
+.shop-btn{
+    padding: 15px 30px;
+    font-family: "Inter", sans-serif;
+}
+
+.hero-service{
+    background-color: #34a853;
+    padding: 30px;
+    margin-block-start: 30px;
+}
+
+.service-subtitle{
+    font-family: "League Spartan", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.service-title{
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+}
+
+.products-title h3{
+    font-family: "League Spartan", sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+}
+
+.product-wrapper{
+    width: 334px;
+    height: 445px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    cursor: pointer;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border: 1px solid #ffffff;
+    overflow: hidden;
+}
+
+.product-info h3{
+    font-family: "League Spartan", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.product-info span{
+    font-size: 20px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
 }
