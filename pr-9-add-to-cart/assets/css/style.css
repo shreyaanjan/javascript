@@ -63,8 +63,8 @@
 }
 
 .product-wrapper{
-    width: 334px;
-    height: 445px;
+    width: 300px;
+    height: 350px;
     padding: 10px;
     border-radius: 4px;
     background-color: #ffffff;
@@ -84,4 +84,14 @@
     font-size: 20px;
     font-family: "Inter", sans-serif;
     font-weight: 600;
+}
+
+.products{
+    padding: 20px;
+}
+
+.cart-btn{
+    border: none;
+    background: none;
+    font-size: 20px;
 }
