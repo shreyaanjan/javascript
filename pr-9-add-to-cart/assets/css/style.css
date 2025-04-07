@@ -9,6 +9,7 @@
 .header-center-section{
     border-bottom: 1px solid rgba(52, 168, 83, 0.06);
     background: rgba(52, 168, 83, 0.06);
+    cursor: pointer;
 }
 
 .hero{
@@ -131,11 +132,18 @@
 .height-100{
     height: 100%;
 }
+
 .product-image{
     width: 70px;
     height: 70px;
 }
+
 .product-image img{
     height: 100%;
     object-fit: contain;
+}
+
+.shop-title{
+    background: rgba(52, 168, 83, 0.06);
+    padding: 15px;
 }
