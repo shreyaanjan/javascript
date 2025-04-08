@@ -66,7 +66,7 @@
 .product-wrapper{
     width: 300px;
     height: 350px;
-    padding: 10px;
+    padding: 10px 20px;
     border-radius: 4px;
     background-color: #ffffff;
     cursor: pointer;
@@ -146,4 +146,13 @@
 .shop-title{
     background: rgba(52, 168, 83, 0.06);
     padding: 15px;
+}
+
+.add-btn{
+    background: rgba(52, 168, 83, 0.2);
+    color: #34a853;
+    border-radius: 4px;
+    border: none;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
 }

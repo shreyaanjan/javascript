@@ -33,19 +33,19 @@ let products = [
         id: 6,
         image: "https://quomodosoft.com/html/ecoshop/assets/images/homepage-one/product-img/p-img-24.webp",
         name: "Fresh Beetroot",
-        price: 150,
+        price: 170,
     },
     {
         id: 7,
         image: "https://quomodosoft.com/html/ecoshop/assets/images/homepage-one/product-img/p-img-21.webp",
         name: "Fresh Oranges",
-        price: 100,
+        price: 50,
     },
     {
         id: 8,
         image: "https://quomodosoft.com/html/ecoshop/assets/images/homepage-one/product-img/p-img-16.webp",
         name: "Fresh Broccoli",
-        price: 100,
+        price: 190,
     },
 ]
 
@@ -88,7 +88,7 @@ products.forEach((product, idx) => {
                     <span class="text-danger">$${product.price}</span>
                 </div>
                 <div class="add-cart">
-                    <button class="btn btn-success add-btn w-100" onclick="addToCart(${product.id})">Add To Cart</button>
+                    <button class="btn btn-success add-btn w-100 d-flex align-items-center justify-content-center" onclick="addToCart(${product.id})"><i class="bi bi-plus fs-4"></i>Add To Cart</button>
                 </div>
             </div>
         </div>               
