@@ -1,69 +1,70 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=League+Spartan:wght@100..900&display=swap');
-*{
+
+* {
     list-style: none;
     text-decoration: none !important;
     font-family: int;
 }
 
-.header-center-section{
+.header-center-section {
     border-bottom: 1px solid rgba(52, 168, 83, 0.06);
     background: rgba(52, 168, 83, 0.06);
     cursor: pointer;
 }
 
-.hero{
+.hero {
     background: url(https://quomodosoft.com/html/ecoshop/assets/images/homepage-one/hero-bg.webp);
     background-repeat: no-repeat;
     background-position: center;
 }
 
-.hero-section{
+.hero-section {
     padding: 70px;
 }
 
-.subtitle{
+.subtitle {
     font-size: 30px;
     color: #34a853;
     font-family: "Inter", sans-serif;
 }
 
-.title{
+.title {
     font-family: "League Spartan", sans-serif;
     font-weight: 700;
     color: #1d1d1d;
     font-size: 76px;
 }
 
-.shop-btn{
+.shop-btn {
     padding: 15px 30px;
     font-family: "Inter", sans-serif;
 }
 
-.hero-service{
+.hero-service {
     background-color: #34a853;
     padding: 30px;
     margin-block-start: 30px;
 }
 
-.service-subtitle{
+.service-subtitle {
     font-family: "League Spartan", sans-serif;
     font-weight: 700;
     font-size: 16px;
 }
 
-.service-title{
+.service-title {
     font-family: "Inter", sans-serif;
     font-size: 14px;
 }
 
-.products-title h3{
+.products-title h3 {
     font-family: "League Spartan", sans-serif;
     font-size: 36px;
     font-weight: 600;
 }
 
-.product-wrapper{
+.product-wrapper {
     width: 300px;
     height: 350px;
     padding: 10px 20px;
@@ -75,84 +76,99 @@
     overflow: hidden;
 }
 
-.product-info h3{
+.product-info h3 {
     font-family: "League Spartan", sans-serif;
     font-weight: 700;
     font-size: 24px;
 }
 
-.product-info span{
+.product-info span {
     font-size: 20px;
     font-family: "Inter", sans-serif;
     font-weight: 600;
 }
 
-.products{
+.products {
     padding: 20px;
 }
 
-.cart-btn{
+.cart-btn {
     border: none;
     background: none;
     font-size: 20px;
 }
 
-.user-btn{
+.user-btn {
     border: none;
     background: none;
     font-size: 25px;
 }
 
-.breadcrumb-item a{
+.breadcrumb-item a {
     color: black;
 }
 
-.cart-title{
+.cart-title {
     font-family: "League Spartan", sans-serif;
     font-weight: 700;
     font-size: 36px;
 }
 
-.cart-section{
-    border-top: 1px solid rgba(52, 168, 83, 0.3);
-    border-left: 1px solid rgba(52, 168, 83, 0.3);
-    border-right: 1px solid rgba(52, 168, 83, 0.3);
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.quantity{
+.quantity {
     width: 90px;
 }
 
-.height-60{
+.height-60 {
     height: 60px;
 }
 
-.height-100{
+.height-100 {
     height: 100%;
 }
 
-.product-image{
+.product-image {
     width: 70px;
     height: 70px;
 }
 
-.product-image img{
+.product-image img {
     height: 100%;
     object-fit: contain;
 }
 
-.shop-title{
+.shop-title {
     background: rgba(52, 168, 83, 0.06);
     padding: 15px;
 }
 
-.add-btn{
-    background: rgba(52, 168, 83, 0.2);
-    color: #34a853;
-    border-radius: 4px;
-    border: none;
+.card-header {
+    background: rgba(52, 168, 83, 0.06);
+    ;
+}
+
+.menu-list ul li {
     font-family: "Inter", sans-serif;
-    font-weight: 700;
+    font-weight: 500;
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+}
+
+.menu-btn:hover {
+    background: none;
+    border: 1px solid black;
+}
+
+.menu-btn:focus-visible {
+    background: none;
+    box-shadow: none;
+}
+
+.close-btn{
+    width: 40px;
+    height: 40px;
+    background-color: #34a853;
+    cursor: pointer;
 }

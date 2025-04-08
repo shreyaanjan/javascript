@@ -51,7 +51,9 @@ let products = [
 
 let cartArr = JSON.parse(localStorage.getItem("cart")) || [];
 let counter = document.getElementById("counter");
+let counter2 = document.getElementById("counter2");
 counter.innerHTML = cartArr.length;
+counter2.innerHTML = cartArr.length;
 
 function addToCart(productId) {
     let product = cartArr.find((obj) => obj.id === productId);
@@ -74,6 +76,7 @@ function addToCart(productId) {
 
     localStorage.setItem("cart", JSON.stringify(cartArr));
     counter.innerHTML = cartArr.length;
+    counter2.innerHTML = cartArr.length;
 }
 
 products.forEach((product, idx) => {
