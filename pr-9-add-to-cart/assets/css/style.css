@@ -113,14 +113,6 @@
     font-size: 36px;
 }
 
-.cart-section{
-    border-top: 1px solid rgba(52, 168, 83, 0.3);
-    border-left: 1px solid rgba(52, 168, 83, 0.3);
-    border-right: 1px solid rgba(52, 168, 83, 0.3);
-    border-radius: 4px;
-    overflow: hidden;
-}
-
 .quantity{
     width: 90px;
 }
@@ -146,4 +138,8 @@
 .shop-title{
     background: rgba(52, 168, 83, 0.06);
     padding: 15px;
+}
+
+.card-header{
+    background: rgba(52, 168, 83, 0.06);;
 }

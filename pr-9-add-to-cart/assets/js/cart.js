@@ -4,8 +4,9 @@ counter.innerHTML = cartArr.length;
 let cartItems = document.getElementById("cartItems");
 let totalAmount = 0;
 let shopTitle = document.querySelector(".shop-title");
+let card = document.querySelector(".card")
 
-const saveArr = ()=>{
+function saveArr(){
     localStorage.setItem("cart",JSON.stringify(cartArr))
 }
 
@@ -28,7 +29,7 @@ function updateQuantity(idx, value){
     displayCart();
 }
 
-const displayCart = ()=>{
+function displayCart(){
     totalAmount = 0;
     cartItems.innerHTML = "";
 
@@ -39,8 +40,10 @@ const displayCart = ()=>{
             </div>
         `
         shopTitle.classList.add("d-none");
+        card.classList.add("d-none");
     } else {
         shopTitle.classList.remove("d-none");
+        card.classList.remove("d-none");
     }
 
     cartArr.forEach((shopItem, idx)=>{
@@ -86,6 +89,24 @@ const displayCart = ()=>{
             </div>
         `
     })
+    document.getElementById("bill").innerHTML = "";
+    document.getElementById("bill").innerHTML += `
+            <h5 class="card-header">Order Summary</h5>
+            <div class="card-body">
+                <div class="d-flex align-items-center justify-content-between">
+                    <h5 class="card-title">Subtotal</h5>
+                    <span>$${totalAmount}</span>
+                </div>
+                <div class="d-flex align-items-center justify-content-between mt-3">
+                    <h5 class="card-title">Shipping</h5>
+                    <span>$0</span>
+                </div>
+                <div class="d-flex align-items-center justify-content-between mt-3">
+                    <h5 class="card-title">Total</h5>
+                    <span>$${totalAmount}</span>
+                </div>
+            </div>
+        `
     
 }
 displayCart();
