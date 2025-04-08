@@ -1,6 +1,8 @@
 let cartArr = JSON.parse(localStorage.getItem("cart")) || [];
 let counter = document.getElementById("counter");
+let counter2 = document.getElementById("counter2");
 counter.innerHTML = cartArr.length;
+counter2.innerHTML = cartArr.length;
 let cartItems = document.getElementById("cartItems");
 let totalAmount = 0;
 let shopTitle = document.querySelector(".shop-title");
@@ -35,8 +37,9 @@ function displayCart(){
 
     if(cartArr.length === 0){
         cartItems.innerHTML = `
-            <div>
+            <div class="text-center">
                 <img class="img-fluid" src="https://static.vecteezy.com/system/resources/previews/016/462/240/non_2x/empty-shopping-cart-illustration-concept-on-white-background-vector.jpg" alt="emptycart">
+                <p class="mt-3 fw-semibold">Your Cart is currently Empty.</p>
             </div>
         `
         shopTitle.classList.add("d-none");
@@ -51,30 +54,28 @@ function displayCart(){
         totalAmount += subTotal
         
         cartItems.innerHTML += `
-        
             <div class="col-6 mt-3">
                 <div class="d-flex gap-4 align-items-center">
                     <div class="product-image">
-                        <img width="100%" class="border" src="${shopItem.image}" 
-                            alt="">
+                        <img width="100%" class="border" src="${shopItem.image}" alt="${shopItem.name}">
                     </div>
-                    <div class=" ">
+                    <div>
                         ${shopItem.name}
                     </div>
                 </div>
             </div> 
-            <div class="col-2 ">
-                <div class="">
+            <div class="col-2">
+                <div class="mt-2">
                     <h5>$${shopItem.price}</h5>
                 </div>
             </div>
             <div class="col-2">
-                <div class="d-flex justify-content-between border quantity">
-                    <button class="border-0" onclick="updateQuantity(${idx}, -1)">
+                <div class="d-flex justify-content-between align-items-center border quantity">
+                    <button class="border-0 bg-transparent" onclick="updateQuantity(${idx}, -1)">
                         <i class="bi bi-dash"></i>
                     </button>
                     <span>${shopItem.quantity}</span>
-                    <button class="border-0" onclick="updateQuantity(${idx}, 1)">
+                    <button class="border-0 bg-transparent" onclick="updateQuantity(${idx}, 1)">
                         <i class="bi bi-plus"></i>
                     </button>
                 </div>
