@@ -30,19 +30,66 @@
                     </div>
                     <div class="cart-items d-flex align-items-center gap-3">
                         <div class="cart">
-                            <button type="button" class="cart-btn position-relative" onclick="window.location=`./cart.html`">
+                            <button type="button" class="cart-btn position-relative"
+                                onclick="window.location=`./cart.html`">
                                 <i class="bi bi-cart"></i>
-                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="counter">
-                                  0
-                                  <span class="visually-hidden">unread messages</span>
+                                <span
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                    id="counter">
                                 </span>
-                              </button>
+                            </button>
                         </div>
                         <div class="user">
                             <div>
                                 <button class="user-btn"><i class="bi bi-person"></i></button>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mobile-header">
+            <button class="btn btn-primary menu-btn" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                <span>
+                    <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="14" height="1" fill="#1D1D1D"></rect>
+                        <rect y="8" width="14" height="1" fill="#1D1D1D"></rect>
+                        <rect y="4" width="10" height="1" fill="#1D1D1D"></rect>
+                    </svg>
+                </span>
+            </button>
+            <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+                aria-labelledby="offcanvasWithBothOptionsLabel">
+                <div class="offcanvas-header d-flex align-items-center justify-content-between">
+                    <h5 class="offcanvas-title fw-semibold" id="offcanvasWithBothOptionsLabel">MENU</h5>
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="cart close-btn rounded-circle d-flex align-items-center justify-content-center">
+                            <button type="button" class="cart-btn position-relative"
+                            onclick="window.location=`./cart.html`">
+                            <i class="bi bi-cart text-white"></i>
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                id="counter2">
+                                0
+                            </span>
+                        </button>
+                        </div>
+                        <div class="close-btn rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="bi bi-x fs-4 text-white" data-bs-dismiss="offcanvas" aria-label="Close"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="offcanvas-body">
+                    <div class="menu-list">
+                        <ul class="p-0 d-flex flex-column justify-content-center gap-3">
+                            <li>Home</li>
+                            <li>Shop</li>
+                            <li>Pages</li>
+                            <li>About</li>
+                            <li>Contact</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -183,33 +230,11 @@
             <div class="products-title">
                 <h3>Top Selling Products</h3>
             </div>
-            <div class="row gy-4" id="rowContent">
-                <!-- <div class="col-3">
-                    <div class="product-wrapper text-center">
-                        <div class="product-img">
-                            <img src="https://quomodosoft.com/html/ecoshop/assets/images/homepage-one/product-img/p-img-1.webp"
-                                alt="">
-                        </div>
-                        <div class="product-info py-3">
-                            <h3>Fresh Red Tomatos</h3>
-                            <span class="text-danger">$6.99</span>
-                        </div>
-                        <div class="add-cart">
-                            <button class="btn btn-success add-btn w-100">
-                                <span>
-                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M8.25309 3.32575C8.25309 4.00929 8.25145 4.69283 8.25418 5.37583C8.25527 5.68424 8.31488 5.74439 8.62382 5.74439C9.96351 5.74603 11.3027 5.74275 12.6423 5.74603C13.2723 5.74767 13.7392 6.05663 13.9241 6.58104C14.2204 7.42098 13.6135 8.24232 12.6757 8.25052C11.5914 8.25982 10.507 8.25271 9.42271 8.25271C9.17665 8.25271 8.93058 8.25216 8.68452 8.25271C8.29082 8.2538 8.25363 8.29154 8.25363 8.69838C8.25309 10.0195 8.25637 11.3412 8.25199 12.6624C8.24981 13.2836 7.92555 13.7544 7.39842 13.9305C6.56399 14.2088 5.75799 13.6062 5.74814 12.6821C5.73776 11.7251 5.74596 10.7687 5.74541 9.81173C5.74541 9.41965 5.74705 9.02812 5.74486 8.63604C5.74322 8.30849 5.68964 8.2538 5.36155 8.25326C4.02186 8.25162 2.68272 8.25545 1.34304 8.25107C0.719125 8.24943 0.249414 7.93008 0.0706069 7.40348C-0.212641 6.57065 0.387757 5.75916 1.30968 5.74658C2.14794 5.73564 2.9862 5.74384 3.82446 5.74384C4.3073 5.74384 4.79013 5.74384 5.27351 5.74384C5.72135 5.7433 5.74541 5.71869 5.74541 5.25716C5.74541 3.95406 5.74268 2.65096 5.7465 1.34786C5.74814 0.720643 6.06201 0.253102 6.5875 0.0704598C7.40826 -0.213893 8.21754 0.370671 8.25199 1.27349C8.25254 1.29154 8.25254 1.31013 8.25254 1.32817C8.25309 1.99531 8.25309 2.66026 8.25309 3.32575Z">
-                                        </path>
-                                    </svg>
-                                </span>Add To Cart
-                            </button>
-                        </div>
-                    </div>
-                </div> -->
-            </div>
+            <div class="row gy-4" id="rowContent"></div>
         </div>
     </section>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./assets/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
