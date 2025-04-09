@@ -57,22 +57,33 @@ counter.innerHTML = cartArr.length;
 counter2.innerHTML = cartArr.length;
 
 function addToCart(productId) {
+ 
     let product = cartArr.find((obj) => obj.id === productId);
 
     if (product) {
         // product.quantity++;
         Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Item added once !",
+            icon: "warning",
+            text: "Item Already Added !",
+            position: 'bottom-start',
+            toast: 'true',
+            showConfirmButton: false,
+            timer: 1500,
         });
     } else {
         let productToAdd = products.find((obj) => obj.id === productId);
-
         if (productToAdd) {
             productToAdd.quantity = 1;
             cartArr.push(productToAdd);
         }
+        Swal.fire({
+            icon: "success",
+            text: "Item added !",
+            position: 'bottom-start',
+            toast: 'true',
+            showConfirmButton: false,
+            timer: 1500,
+        });
     }
 
     localStorage.setItem("cart", JSON.stringify(cartArr));
@@ -82,10 +93,10 @@ function addToCart(productId) {
 
 products.forEach((product, idx) => {
     document.getElementById("rowContent").innerHTML += `
-        <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-4">
+        <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb-4">
             <div class="product-wrapper text-center">
                 <div class="product-img">
-                    <img src="${product.image}" alt="${product.name}">
+                    <img src="${product.image}" alt="${product.name}" width="100%">
                 </div>
                 <div class="rating pt-3">
                     <span>

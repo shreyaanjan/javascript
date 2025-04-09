@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <header>
+    <header  class="position-sticky top-0 bg-white shadow z-2">
         <div class="header-center-section p-3 d-none d-md-block">
             <div class="container">
                 <div class="head-center d-flex align-items-center justify-content-evenly">
@@ -101,7 +101,7 @@
             <div class="container">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Cart</li>
                     </ol>
                 </nav>
@@ -112,9 +112,9 @@
 
     <section class="cart-section-titles">
         <div class="container">
-            <div class="row">
+            <div class="row" id="nothingCart">
                 <div class="col-md-9 col-12">
-                    <div>
+                    <div class="d-lg-block d-none">
                         <div class="row border height-60 shop-title">
                             <div class="col-6">
                                 <div class=" d-flex align-items-center">
@@ -138,7 +138,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="">
+                    <div>
                         <div class="row d-flex border pb-3 align-items-center" id="cartItems"></div>
                     </div>
                 </div>
