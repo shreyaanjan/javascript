@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h3>DOGGU's WORLDDD 🐶</h3>
+        <!-- <input type="text mt-3" placeholder="Enter Doggu Name : " class="form-control" id="ipName"> -->
+        <button class="btn btn-primary mt-3" id="clickBtn">Get Photu</button>
+        <div class="mt-5">
+            <img src="" alt="" id="doguPhotu">
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("clickBtn").addEventListener("click", ()=>{
+            // let ipName = document.getElementById("ipName").value;
+
+            const URL = 'https://dog.ceo/api/breeds/image/random';
+            fetch(URL)
+            .then((resp) => {
+                return resp.json()
+            })
+            .then((resp) => {
+                console.log(resp.message);
+                document.getElementById("doguPhotu").src = resp.message
+            })
+        })
+        
+    </script>
+</body>
+</html>

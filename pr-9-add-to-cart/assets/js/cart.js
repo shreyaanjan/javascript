@@ -5,6 +5,7 @@ let cartItems = document.getElementById("cartItems");
 let totalAmount = 0;
 let shopTitle = document.querySelector(".shop-title");
 let card = document.querySelector(".card")
+let checkout = document.getElementById("checkout")
 
 function saveArr() {
     localStorage.setItem("cart", JSON.stringify(cartArr))
@@ -114,6 +115,11 @@ function displayCart() {
             </div>
         </div>
     `
+    checkout.innerHTML = "";
+    checkout.innerHTML += `
+        <button class="btn btn-success mt-3 w-50 home-btn">Checkout</button>
+    `
+
 }
 displayCart();
 counter.innerHTML = cartArr.length;
