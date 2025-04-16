@@ -17,15 +17,29 @@ body{
     padding: 10px 17px;
 }
 
+.form-control:focus{
+    box-shadow: none;
+    outline: 2px solid #43aefc;
+}
+
 #check{
     background-color: #43aefc;
     border: none;
 }
 
 #check:hover{
-    background-color: #4395cf;
+    background-color: white;
+    outline: 2px solid #43aefc;
+    color: black;
 }
 
 .arrow{
    color: #58a8d9; 
+}
+
+.container{
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
