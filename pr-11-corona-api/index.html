@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,19 +10,26 @@
 </head>
 
 <body>
-    <div class="container mt-3">
-        <h2>CORONA TOTALCASES</h2>
-        <div>
-            <label for="ctName" class="form-label">Enter State/Country Name : </label>
-            <input type="text" id="ctName" class="form-control w-50">
+    <section>
+        <div class="container">
+            <div class="search mt-5 text-center">
+                <h2 class="text-uppercase">covid-19 tracker</h2>
+                <div class="pt-2">
+                    <input type="text" id="ctName" class="form-control w-50 mx-auto rounded-pill"
+                        placeholder="Search State">
+                </div>
+                <div class="py-4">
+                    <div class="btn btn-primary w-25 rounded-pill" id="check">Check</div>
+                </div>
+            </div>
+            <div class="result" id="result">
+                <div id="location" class="box">Location :</div>
+                <div id="confirm" class="box">Confirmed :</div>
+                <div id="recover" class="box">Recovered :</div>
+                <div id="death" class="box">Deaths :</div>
+            </div>
         </div>
-        <div class="mt-3">
-            <div class="btn btn-primary" id="check">Check</div>
-        </div>
-        <div class="mt-3">
-            <p id="ans"></p>
-        </div>
-    </div>
+    </section>
 
     <script src="./assets/js/script.js"></script>
 </body>
