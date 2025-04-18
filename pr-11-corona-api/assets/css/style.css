@@ -6,10 +6,6 @@ body{
     color: white;
 }
 
-input.form-control {
-    text-align: center;
-}
-
 .result{
     padding: 30px;
     background-color: #fff;
