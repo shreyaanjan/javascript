@@ -11,45 +11,48 @@
 </head>
 
 <body>
-    <section class="weather">
-        <div class="container mt-5">
-            <div class="card" style="width: 20rem;">
-                <div class="card-body card-title-border p-3">
-                    <h5 class="card-title m-0 fw-semibold">Weather App</h5>
-                </div>
-                <div class="card-body p-4">
-                    <!-- <label for="ctName" class="form-label">Enter State :</label> -->
-                    <input type="text" name="name" id="ctName" class="form-control text-center" placeholder="Enter city name">
-                </div>
-                <div class="card-body pt-0">
-                    <button class="btn btn-primary w-100" id="check">Check Weather</button>
-                </div>
-            </div>
-            <div class="card mt-4" style="width: 20rem;">
-                <div class="card-body card-title-border p-3">
-                    <div class="d-flex align-items-center gap-2">
-                        <i class="bi bi-arrow-left fs-5 arrow"></i>
+    <section class="weather vh-100 d-flex align-items-center justify-content-center">
+        <div class="container">
+            <div class="searchCard">
+                <div class="card" style="width: 20rem;">
+                    <div class="card-body card-title-border p-3">
                         <h5 class="card-title m-0 fw-semibold">Weather App</h5>
                     </div>
+                    <div class="card-body p-4">
+                        <input type="text" name="name" id="ctName" class="form-control" placeholder="Enter city name">
+                    </div>
+                    <div class="card-body pt-0">
+                        <button class="btn btn-primary w-100" id="check">Check Weather</button>
+                    </div>
                 </div>
-                <div class="card-body text-center p-0">
-                    <img src="" alt="" id="icon">
-                    <h2 id="temp" ></h2>
-                    <p id="weatherDesc"></p>
-                    <p id="location"></p>
-                    <div class="d-flex align-items-center justify-content-evenly text-center border p-2">
-                        <div class="d-flex align-items-center pe-5 border-end">
-                            <i class="bi bi-thermometer-half fs-5"></i>
-                            <div class="text-start">
-                                <p id="feelsLike" class="m-0 ms-2"></p>
-                                <span class="ms-2">Feels like</span>
-                            </div>
+            </div>
+            <div class="weatherCard d-none">
+                <div class="card mt-4" style="width: 20rem;">
+                    <div class="card-body card-title-border p-3">
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="bi bi-arrow-left fs-5 arrow" id="backBtn"></i>
+                            <h5 class="card-title m-0 fw-semibold">Weather App</h5>
                         </div>
-                        <div class="d-flex align-items-center ps-3">
-                            <i class="bi bi-droplet-half fs-5"></i>
-                            <div class="text-start">
-                                <p id="humidity" class="m-0 ms-2"></p>
-                                <span class="ms-2">Humidity</span>
+                    </div>
+                    <div class="card-body text-center p-0">
+                        <img src="" alt="" id="icon">
+                        <h2 id="temp" ></h2>
+                        <p id="weatherDesc"></p>
+                        <p id="location"></p>
+                        <div class="d-flex align-items-center justify-content-evenly text-center border p-2">
+                            <div class="d-flex align-items-center pe-5 border-end">
+                                <i class="bi bi-thermometer-half fs-3"></i>
+                                <div class="text-start">
+                                    <p id="feelsLike" class="m-0 ms-2"></p>
+                                    <span class="ms-2">Feels like</span>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center ps-3">
+                                <i class="bi bi-droplet-half fs-3"></i>
+                                <div class="text-start">
+                                    <p id="humidity" class="m-0 ms-2"></p>
+                                    <span class="ms-2">Humidity</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -57,7 +60,7 @@
             </div>
         </div>
     </section>
-  
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 
