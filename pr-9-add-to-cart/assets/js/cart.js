@@ -12,7 +12,6 @@ function saveArr() {
 }
 
 function deleteItem(idx) {
-
     cartArr.splice(idx, 1);
     saveArr();
     displayCart()

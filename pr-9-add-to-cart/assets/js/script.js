@@ -57,10 +57,16 @@ counter.innerHTML = cartArr.length;
 counter2.innerHTML = cartArr.length;
 
 function addToCart(productId) {
- 
-    let product = cartArr.find((obj) => obj.id === productId);
 
-    if (product) {
+    let product = products.find((obj) => {
+        return obj.id === productId;
+    })
+
+    let productIdx = cartArr.findIndex((obj) => {
+        return obj.id === productId;
+    })
+
+    if (productIdx !== -1) {
         // product.quantity++;
         Swal.fire({
             icon: "warning",
@@ -71,11 +77,8 @@ function addToCart(productId) {
             timer: 1500,
         });
     } else {
-        let productToAdd = products.find((obj) => obj.id === productId);
-        if (productToAdd) {
-            productToAdd.quantity = 1;
-            cartArr.push(productToAdd);
-        }
+        product.quantity = 1;
+        cartArr.push(product);
         Swal.fire({
             icon: "success",
             text: "Item added !",
