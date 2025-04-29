@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h3 class="mt-2">Local Storage CRUD</h3>
+        <div class="mt-2">
+            <label for="name">Name : </label>
+            <input type="text" id="name" name="name" class="form-control w-50">
+        </div>
+        <div class="mt-2">
+            <label for="mail">Email : </label>
+            <input type="email" id="mail" name="email" class="form-control w-50">
+        </div>
+        <div class="mt-2">
+            <label for="contact">Contact No : </label>
+            <input type="number" id="contact" name="contact" class="form-control w-50">
+        </div>
+        <div class="mt-2">
+            <label for="course">Course : </label>
+            <select name="course" id="course" class="form-select w-50">
+                <option value="">Select Your Course</option>
+                <option value="1">Full Stack Development</option>
+                <option value="2">UI / UX</option>
+                <option value="3">AI / ML</option>
+            </select>
+        </div>
+        <div class="mt-2">
+            <label for="gender">Gender : </label>
+            <input type="radio" name="gender" id="female" value="female">
+            <label for="female">Female</label>
+            <input type="radio" name="gender" id="male" value="male">
+            <label for="male">Male</label>
+        </div>
+        <div class="mt-2">
+            <button class="btn btn-primary" id="submitBtn">Submit</button>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
