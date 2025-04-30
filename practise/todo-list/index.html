@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <h3 class="mt-2">To-Do List</h3>
+            <div class="mt-2">
+                <label for="tasksIp">Enter your Tasks : </label>
+                <input type="text" id="tasksIp" name="task" class="form-control w-50">
+            </div>
+            <div class="mt-2">
+                <label for="priority">Priority : </label>
+                <select name="priority" id="priority" class="form-select w-50">
+                    <option value="">Select priority for your Task</option>
+                    <option value="1">Low</option>
+                    <option value="2">Medium</option>
+                    <option value="3">High</option>
+                </select>
+            </div>
+            <div class="mt-3">
+                <button class="btn btn-success" id="addTask">Add Task</button>
+            </div>
+        </div>
+        <div class="mt-2">
+            <table class="table table-responsive table-success">
+                <thead>
+                    <tr>
+                        <th>Tasks</th>
+                        <th>Priority</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="taskContent">
+                    <!-- <tr>
+                        <td>code</td>
+                        <td>high</td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
