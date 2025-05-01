@@ -1,0 +1,200 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: #f0f2f5;
+    transition: background-color 0.3s ease;
+}
+
+.calculator {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    width: 340px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+h1 {
+    margin: 0 0 20px;
+    font-size: 2.5em;
+    color: #2f3542;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.display {
+    width: 100%;
+    height: 60px;
+    background: #f7f9fb;
+    border: none;
+    border-radius: 10px;
+    text-align: right;
+    font-size: 2em;
+    padding: 10px;
+    margin-bottom: 20px;
+    color: #2f3542;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+button {
+    padding: 20px;
+    font-size: 1.3em;
+    border: none;
+    border-radius: 10px;
+    background-color: #e0e6ed;
+    color: #2f3542;
+    transition: background 0.2s, transform 0.1s ease-in-out;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #d0d8e0;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.operator {
+    background-color: #1e90ff;
+    color: #fff;
+}
+
+.operator:hover {
+    background-color: #1c7ed6;
+}
+
+.equal {
+    background-color: #2ed573;
+    color: white;
+}
+
+.equal:hover {
+    background-color: #20bf6b;
+}
+
+.clear {
+    background-color: #ff4757;
+    color: white;
+}
+
+.clear:hover {
+    background-color: #e84118;
+}
+
+.toggle-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.toggle-label {
+    font-size: 1.2em;
+    color: #2f3542;
+    transition: color 0.3s ease;
+}
+
+.toggle-switch {
+    position: relative;
+    width: 50px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.toggle-switch:before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.toggle-switch.active {
+    background-color: #70a1ff;
+}
+
+.toggle-switch.active:before {
+    transform: translateX(20px);
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #2f3542;
+}
+
+.calculator.dark-mode {
+    background: #333;
+}
+
+.display.dark-mode {
+    background: #444;
+    color: #fff;
+}
+
+button.dark-mode {
+    background-color: #555;
+    color: white;
+}
+
+button.dark-mode:hover {
+    background-color: #777;
+}
+
+.operator.dark-mode {
+    background-color: #1e90ff;
+}
+
+.operator.dark-mode:hover {
+    background-color: #1c7ed6;
+}
+
+.equal.dark-mode {
+    background-color: #2ed573;
+}
+
+.equal.dark-mode:hover {
+    background-color: #20bf6b;
+}
+
+.clear.dark-mode {
+    background-color: #ff4757;
+}
+
+.clear.dark-mode:hover {
+    background-color: #e84118;
+}
+
+/* Dark Mode Specific Adjustments */
+body.dark-mode h1,
+.toggle-label.dark-mode {
+    color: #fff;
+}
+
+.toggle-container .toggle-label {
+    color: #2f3542;
+}
+
+.toggle-container .toggle-label.dark-mode {
+    color: #fff;
+}
