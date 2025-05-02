@@ -1,0 +1,10 @@
+.product-wrapper {
+    padding:  20px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    cursor: pointer;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border: 1px solid #ffffff;
+    overflow: hidden;
+    transition:0.3s all linear ;
+}
