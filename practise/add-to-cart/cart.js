@@ -11,7 +11,7 @@ function displayCart(){
             <div class="col-lg-6 mt-3 px-3">
                 <div class="d-flex gap-4 align-items-center justify-content-start  ">
                     <div class="product-image">
-                        <img class="border img-fluid" src="${item.img}" alt="${item.description}">
+                        <img width="150px" class="img-fluid" src="${item.img}" alt="${item.description}">
                     </div>
                     <h3>
                         ${item.description}
@@ -48,3 +48,11 @@ function displayCart(){
     })
 }
 displayCart();
+
+function updateQuantity(){
+
+}
+
+function deleteItem(idx){
+    ca
+}
