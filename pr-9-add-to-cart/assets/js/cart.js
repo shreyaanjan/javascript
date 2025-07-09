@@ -116,7 +116,7 @@ function displayCart() {
     `
     checkout.innerHTML = "";
     checkout.innerHTML += `
-        <button class="btn btn-success mt-3 w-50 home-btn">Checkout</button>
+        <button class="btn btn-success mt-3 home-btn">Checkout</button>
     `
 
 }
